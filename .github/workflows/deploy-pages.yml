@@ -21,7 +21,7 @@ jobs:
       - name: Baixar o repositório
         uses: actions/checkout@v4
 
-      - name: Configurar pnpm
+      - name: Configurar pnpm pela versão do projeto
         uses: pnpm/action-setup@v4
         with:
           version: 10.4.1
