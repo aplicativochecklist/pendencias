@@ -21,13 +21,13 @@ jobs:
       - name: Baixar o repositório
         uses: actions/checkout@v4
 
-      - name: Configurar pnpm pela versão do projeto
+      - name: Configurar pnpm
         uses: pnpm/action-setup@v4
         with:
           version: 10.4.1
 
       - name: Configurar Node.js
-        uses: actions/setup-node@v4
+        uses: pnpm/action-setup@v4
         with:
           node-version: 22
           cache: pnpm
