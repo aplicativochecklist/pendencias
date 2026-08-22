@@ -206,6 +206,8 @@ function vitePluginStorageProxy(): Plugin {
 const plugins = [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime(), vitePluginManusDebugCollector(), vitePluginStorageProxy()];
 
 export default defineConfig({
+  // GitHub Pages publica este projeto em um subcaminho; localmente o app continua na raiz.
+  base: process.env.GITHUB_ACTIONS === "true" ? "/pendencias/" : "/",
   plugins,
   resolve: {
     alias: {
