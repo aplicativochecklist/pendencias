@@ -1,0 +1,1472 @@
+[
+  {
+    "item": 1,
+    "code": "40400032",
+    "description": "MARTELO DE BOLA 800G",
+    "quantity": 1
+  },
+  {
+    "item": 2,
+    "code": "40680080",
+    "description": "MARTELO BORRACHA 80MM",
+    "quantity": 1
+  },
+  {
+    "item": 3,
+    "code": "41701308",
+    "description": "LIMA REDONDA BASTARDA 8",
+    "quantity": 1
+  },
+  {
+    "item": 4,
+    "code": "43156305",
+    "description": "TRENA 5M",
+    "quantity": 1
+  },
+  {
+    "item": 5,
+    "code": "44000108",
+    "description": "ALICATE UNIVERSAL 8",
+    "quantity": 1
+  },
+  {
+    "item": 6,
+    "code": "44004106",
+    "description": "ALICATE MEIA CANA 6",
+    "quantity": 1
+  },
+  {
+    "item": 7,
+    "code": "44010170",
+    "description": "ALICATE PARA ANEIS 7",
+    "quantity": 1
+  },
+  {
+    "item": 8,
+    "code": "44012110",
+    "description": "ALIC. PRESSAO MORD. TRIANGULAR 10",
+    "quantity": 1
+  },
+  {
+    "item": 9,
+    "code": "44021014",
+    "description": "CHAVE PARA TUBOS 14",
+    "quantity": 1
+  },
+  {
+    "item": 10,
+    "code": "44022115",
+    "description": "CHAVE AJUSTAVEL 15",
+    "quantity": 1
+  },
+  {
+    "item": 11,
+    "code": "44032012",
+    "description": "ARCO DE SERRA 12",
+    "quantity": 1
+  },
+  {
+    "item": 12,
+    "code": "44038110",
+    "description": "ALICATE BOMBA D AGUA 10",
+    "quantity": 1
+  },
+  {
+    "item": 13,
+    "code": "44042001",
+    "description": "CH FILTRO OLEO 25-150MM",
+    "quantity": 1
+  },
+  {
+    "item": 14,
+    "code": "44042002",
+    "description": "CH FILTRO OLEO 40-230MM",
+    "quantity": 1
+  },
+  {
+    "item": 15,
+    "code": "44074101",
+    "description": "ALICATE BICO LONGO 6",
+    "quantity": 1
+  },
+  {
+    "item": 16,
+    "code": "44099102",
+    "description": "CHAVE EXTENSAO FLEX. IMANTADA 2,3KG",
+    "quantity": 1
+  },
+  {
+    "item": 17,
+    "code": "44127002",
+    "description": "CH. TOCO P. CHATA 6X38 -1/4X1.1/2",
+    "quantity": 1
+  },
+  {
+    "item": 18,
+    "code": "44127053",
+    "description": "CH. DE FENDA P CHATA 10X300 -3/8X12",
+    "quantity": 1
+  },
+  {
+    "item": 19,
+    "code": "44128002",
+    "description": "CH. TOCO P. CRUZ. 6X38 -1/4X1.1/2",
+    "quantity": 1
+  },
+  {
+    "item": 20,
+    "code": "44128009",
+    "description": "CH. DE FENDA P. CRUZ. 3X100 -1/8X4",
+    "quantity": 1
+  },
+  {
+    "item": 21,
+    "code": "44128033",
+    "description": "CH. DE FENDA P. CRUZ. 6X250 -1/4X5",
+    "quantity": 1
+  },
+  {
+    "item": 22,
+    "code": "44128406",
+    "description": "JOGO DE CHAVES DE FENDA 6 PECAS",
+    "quantity": 1
+  },
+  {
+    "item": 23,
+    "code": "44251003",
+    "description": "CHAVE CANHAO 3MM TWISTER",
+    "quantity": 1
+  },
+  {
+    "item": 24,
+    "code": "44251004",
+    "description": "CHAVE CANHAO 4MM TWISTER",
+    "quantity": 1
+  },
+  {
+    "item": 25,
+    "code": "44251005",
+    "description": "CHAVE CANHAO 5MM TWISTER",
+    "quantity": 1
+  },
+  {
+    "item": 26,
+    "code": "44251006",
+    "description": "CHAVE CANHAO 6MM TWISTER",
+    "quantity": 1
+  },
+  {
+    "item": 27,
+    "code": "44251007",
+    "description": "CHAVE CANHAO 7MM TWISTER",
+    "quantity": 1
+  },
+  {
+    "item": 28,
+    "code": "44251008",
+    "description": "CHAVE CANHAO 8MM TWISTER",
+    "quantity": 1
+  },
+  {
+    "item": 29,
+    "code": "44251009",
+    "description": "CHAVE CANHAO 9MM TWISTER",
+    "quantity": 1
+  },
+  {
+    "item": 30,
+    "code": "44251010",
+    "description": "CHAVE CANHAO 10MM TWISTER",
+    "quantity": 1
+  },
+  {
+    "item": 31,
+    "code": "44251011",
+    "description": "CHAVE CANHAO 11MM TWISTER",
+    "quantity": 1
+  },
+  {
+    "item": 32,
+    "code": "44251012",
+    "description": "CHAVE CANHAO 12MM TWISTER",
+    "quantity": 1
+  },
+  {
+    "item": 33,
+    "code": "44251013",
+    "description": "CHAVE CANHAO 13MM TWISTER",
+    "quantity": 1
+  },
+  {
+    "item": 34,
+    "code": "44251014",
+    "description": "CHAVE CANHAO 14MM TWISTER",
+    "quantity": 1
+  },
+  {
+    "item": 35,
+    "code": "44261007",
+    "description": "CHAVE CANHAO 3/8  X 125MM TWISTER",
+    "quantity": 1
+  },
+  {
+    "item": 36,
+    "code": "44400000",
+    "description": "CHAVE HEXAGONAL 1,5MM",
+    "quantity": 1
+  },
+  {
+    "item": 37,
+    "code": "44400001",
+    "description": "CHAVE HEXAGONAL 2MM",
+    "quantity": 1
+  },
+  {
+    "item": 38,
+    "code": "44400002",
+    "description": "CHAVE HEXAGONAL 2,5MM",
+    "quantity": 1
+  },
+  {
+    "item": 39,
+    "code": "44400003",
+    "description": "CHAVE HEXAGONAL 3MM",
+    "quantity": 1
+  },
+  {
+    "item": 40,
+    "code": "44400004",
+    "description": "CHAVE HEXAGONAL 4MM",
+    "quantity": 1
+  },
+  {
+    "item": 41,
+    "code": "44400005",
+    "description": "CHAVE HEXAGONAL 5MM",
+    "quantity": 1
+  },
+  {
+    "item": 42,
+    "code": "44400006",
+    "description": "CHAVE HEXAGONAL 6MM",
+    "quantity": 1
+  },
+  {
+    "item": 43,
+    "code": "44400008",
+    "description": "CHAVE HEXAGONAL 8MM",
+    "quantity": 1
+  },
+  {
+    "item": 44,
+    "code": "44400010",
+    "description": "CHAVE HEXAGONAL 10MM",
+    "quantity": 1
+  },
+  {
+    "item": 45,
+    "code": "44420006",
+    "description": "CHAVE HEXAGONAL 5/32",
+    "quantity": 1
+  },
+  {
+    "item": 46,
+    "code": "44420007",
+    "description": "CHAVE HEXAGONAL 3/16",
+    "quantity": 1
+  },
+  {
+    "item": 47,
+    "code": "44420008",
+    "description": "CHAVE HEXAGONAL 7/32",
+    "quantity": 1
+  },
+  {
+    "item": 48,
+    "code": "44420009",
+    "description": "CHAVE HEXAGONAL 1/4",
+    "quantity": 1
+  },
+  {
+    "item": 49,
+    "code": "44420010",
+    "description": "CHAVE HEXAGONAL 5/16",
+    "quantity": 1
+  },
+  {
+    "item": 50,
+    "code": "44420011",
+    "description": "CHAVE HEXAGONAL 3/8",
+    "quantity": 1
+  },
+  {
+    "item": 51,
+    "code": "44420012",
+    "description": "CHAVE HEXAGONAL 7/16",
+    "quantity": 1
+  },
+  {
+    "item": 52,
+    "code": "44420013",
+    "description": "CHAVE HEXAGONAL 1/2",
+    "quantity": 1
+  },
+  {
+    "item": 53,
+    "code": "44420014",
+    "description": "CHAVE HEXAGONAL 9/16",
+    "quantity": 1
+  },
+  {
+    "item": 54,
+    "code": "44420015",
+    "description": "CHAVE HEXAGONAL 5/8",
+    "quantity": 1
+  },
+  {
+    "item": 55,
+    "code": "44450010",
+    "description": "CHAVE TRAFIX T10",
+    "quantity": 1
+  },
+  {
+    "item": 56,
+    "code": "44450015",
+    "description": "CHAVE TRAFIX T15",
+    "quantity": 1
+  },
+  {
+    "item": 57,
+    "code": "44450020",
+    "description": "CHAVE TRAFIX T20",
+    "quantity": 1
+  },
+  {
+    "item": 58,
+    "code": "44450025",
+    "description": "CHAVE TRAFIX T25",
+    "quantity": 1
+  },
+  {
+    "item": 59,
+    "code": "44450027",
+    "description": "CHAVE TRAFIX T27",
+    "quantity": 1
+  },
+  {
+    "item": 60,
+    "code": "44450030",
+    "description": "CHAVE TRAFIX T30",
+    "quantity": 1
+  },
+  {
+    "item": 61,
+    "code": "44450040",
+    "description": "CHAVE TRAFIX T40",
+    "quantity": 1
+  },
+  {
+    "item": 62,
+    "code": "44450045",
+    "description": "CHAVE TRAFIX T45",
+    "quantity": 1
+  },
+  {
+    "item": 63,
+    "code": "44450050",
+    "description": "CHAVE TRAFIX T50",
+    "quantity": 1
+  },
+  {
+    "item": 64,
+    "code": "44473119",
+    "description": "TALHADEIRA 19X180MM",
+    "quantity": 1
+  },
+  {
+    "item": 65,
+    "code": "44508300",
+    "description": "TORQUIMETRO ESTALO 40-200NM",
+    "quantity": 1
+  },
+  {
+    "item": 66,
+    "code": "44520120",
+    "description": "JOGO LAMINAS DE CALIBRE FOLGA 20 PC",
+    "quantity": 1
+  },
+  {
+    "item": 67,
+    "code": "44540005",
+    "description": "PAQUIMETRO UNIVERSAL 0-200MM",
+    "quantity": 1
+  },
+  {
+    "item": 68,
+    "code": "44650106",
+    "description": "CHAVE COMBINADA 6MM",
+    "quantity": 1
+  },
+  {
+    "item": 69,
+    "code": "44650107",
+    "description": "CHAVE COMBINADA 7MM",
+    "quantity": 1
+  },
+  {
+    "item": 70,
+    "code": "44650108",
+    "description": "CHAVE COMBINADA 8MM",
+    "quantity": 1
+  },
+  {
+    "item": 71,
+    "code": "44650110",
+    "description": "CHAVE COMBINADA 10MM",
+    "quantity": 1
+  },
+  {
+    "item": 72,
+    "code": "44650111",
+    "description": "CHAVE COMBINADA 11MM",
+    "quantity": 1
+  },
+  {
+    "item": 73,
+    "code": "44650113",
+    "description": "CHAVE COMBINADA 13MM",
+    "quantity": 1
+  },
+  {
+    "item": 74,
+    "code": "44650114",
+    "description": "CHAVE COMBINADA 14MM",
+    "quantity": 1
+  },
+  {
+    "item": 75,
+    "code": "44650115",
+    "description": "CHAVE COMBINADA 15MM",
+    "quantity": 1
+  },
+  {
+    "item": 76,
+    "code": "44650116",
+    "description": "CHAVE COMBINADA 16MM",
+    "quantity": 1
+  },
+  {
+    "item": 77,
+    "code": "44650117",
+    "description": "CHAVE COMBINADA 17MM",
+    "quantity": 1
+  },
+  {
+    "item": 78,
+    "code": "44650118",
+    "description": "CHAVE COMBINADA 18MM",
+    "quantity": 1
+  },
+  {
+    "item": 79,
+    "code": "44650119",
+    "description": "CHAVE COMBINADA 19MM",
+    "quantity": 1
+  },
+  {
+    "item": 80,
+    "code": "44650121",
+    "description": "CHAVE COMBINADA 21MM",
+    "quantity": 1
+  },
+  {
+    "item": 81,
+    "code": "44650122",
+    "description": "CHAVE COMBINADA 22MM",
+    "quantity": 1
+  },
+  {
+    "item": 82,
+    "code": "44650124",
+    "description": "CHAVE COMBINADA 24MM",
+    "quantity": 1
+  },
+  {
+    "item": 83,
+    "code": "44650127",
+    "description": "CHAVE COMBINADA 27MM",
+    "quantity": 1
+  },
+  {
+    "item": 84,
+    "code": "44650132",
+    "description": "CHAVE COMBINADA 32MM",
+    "quantity": 1
+  },
+  {
+    "item": 85,
+    "code": "44650134",
+    "description": "CHAVE COMBINADA 34MM",
+    "quantity": 1
+  },
+  {
+    "item": 86,
+    "code": "44650136",
+    "description": "CHAVE COMBINADA 36MM",
+    "quantity": 1
+  },
+  {
+    "item": 87,
+    "code": "44650141",
+    "description": "CHAVE COMBINADA 41MM",
+    "quantity": 1
+  },
+  {
+    "item": 88,
+    "code": "44670100",
+    "description": "CHAVE COMBINADA 1/4",
+    "quantity": 1
+  },
+  {
+    "item": 89,
+    "code": "44670101",
+    "description": "CHAVE COMBINADA 5/16",
+    "quantity": 1
+  },
+  {
+    "item": 90,
+    "code": "44670102",
+    "description": "CHAVE COMBINADA 3/8",
+    "quantity": 1
+  },
+  {
+    "item": 91,
+    "code": "44670103",
+    "description": "CHAVE COMBINADA 7/16",
+    "quantity": 1
+  },
+  {
+    "item": 92,
+    "code": "44670104",
+    "description": "CHAVE COMBINADA 1/2",
+    "quantity": 1
+  },
+  {
+    "item": 93,
+    "code": "44670105",
+    "description": "CHAVE COMBINADA 9/16",
+    "quantity": 1
+  },
+  {
+    "item": 94,
+    "code": "44670106",
+    "description": "CHAVE COMBINADA 5/8",
+    "quantity": 1
+  },
+  {
+    "item": 95,
+    "code": "44670107",
+    "description": "CHAVE COMBINADA 11/16",
+    "quantity": 1
+  },
+  {
+    "item": 96,
+    "code": "44670108",
+    "description": "CHAVE COMBINADA 3/4",
+    "quantity": 1
+  },
+  {
+    "item": 97,
+    "code": "44670110",
+    "description": "CHAVE COMBINADA 13/16",
+    "quantity": 1
+  },
+  {
+    "item": 98,
+    "code": "44670111",
+    "description": "CHAVE COMBINADA 7/8",
+    "quantity": 1
+  },
+  {
+    "item": 99,
+    "code": "44670112",
+    "description": "CHAVE COMBINADA 15/16",
+    "quantity": 1
+  },
+  {
+    "item": 100,
+    "code": "44670113",
+    "description": "CHAVE COMBINADA 1",
+    "quantity": 1
+  },
+  {
+    "item": 101,
+    "code": "44670114",
+    "description": "CHAVE COMBINADA 1.1/16",
+    "quantity": 1
+  },
+  {
+    "item": 102,
+    "code": "44670115",
+    "description": "CHAVE COMBINADA 1.1/8",
+    "quantity": 1
+  },
+  {
+    "item": 103,
+    "code": "44670117",
+    "description": "CHAVE COMBINADA 1.1/4",
+    "quantity": 1
+  },
+  {
+    "item": 104,
+    "code": "44720108",
+    "description": "CHAVE BIELA 8MM",
+    "quantity": 1
+  },
+  {
+    "item": 105,
+    "code": "44720109",
+    "description": "CHAVE BIELA 9MM",
+    "quantity": 1
+  },
+  {
+    "item": 106,
+    "code": "44720110",
+    "description": "CHAVE BIELA 10MM",
+    "quantity": 1
+  },
+  {
+    "item": 107,
+    "code": "44720111",
+    "description": "CHAVE BIELA 11MM",
+    "quantity": 1
+  },
+  {
+    "item": 108,
+    "code": "44720112",
+    "description": "CHAVE BIELA 12MM",
+    "quantity": 1
+  },
+  {
+    "item": 109,
+    "code": "44720113",
+    "description": "CHAVE BIELA 13MM",
+    "quantity": 1
+  },
+  {
+    "item": 110,
+    "code": "44720114",
+    "description": "CHAVE BIELA 14MM",
+    "quantity": 1
+  },
+  {
+    "item": 111,
+    "code": "44720115",
+    "description": "CHAVE BIELA 15MM",
+    "quantity": 1
+  },
+  {
+    "item": 112,
+    "code": "44720116",
+    "description": "CHAVE BIELA 16MM",
+    "quantity": 1
+  },
+  {
+    "item": 113,
+    "code": "44720117",
+    "description": "CHAVE BIELA 17MM",
+    "quantity": 1
+  },
+  {
+    "item": 114,
+    "code": "44720118",
+    "description": "CHAVE BIELA 18MM",
+    "quantity": 1
+  },
+  {
+    "item": 115,
+    "code": "44720119",
+    "description": "CHAVE BIELA 19MM",
+    "quantity": 1
+  },
+  {
+    "item": 116,
+    "code": "44745050",
+    "description": "ESPATULA CHATA 500MM",
+    "quantity": 1
+  },
+  {
+    "item": 117,
+    "code": "44747060",
+    "description": "ESPATULA REDONDA 24 - 600MM",
+    "quantity": 1
+  },
+  {
+    "item": 118,
+    "code": "44818106",
+    "description": "SOQUETE ESTRIADO 3/8 6MM",
+    "quantity": 1
+  },
+  {
+    "item": 119,
+    "code": "44818107",
+    "description": "SOQUETE ESTRIADO 3/8 7MM",
+    "quantity": 1
+  },
+  {
+    "item": 120,
+    "code": "44818108",
+    "description": "SOQUETE ESTRIADO 3/8 8MM",
+    "quantity": 1
+  },
+  {
+    "item": 121,
+    "code": "44818109",
+    "description": "SOQUETE ESTRIADO 3/8 9MM",
+    "quantity": 1
+  },
+  {
+    "item": 122,
+    "code": "44818110",
+    "description": "SOQUETE ESTRIADO 3/8  10MM",
+    "quantity": 1
+  },
+  {
+    "item": 123,
+    "code": "44818111",
+    "description": "SOQUETE ESTRIADO 3/8 11MM",
+    "quantity": 1
+  },
+  {
+    "item": 124,
+    "code": "44818112",
+    "description": "SOQUETE ESTRIADO 3/8 12MM",
+    "quantity": 1
+  },
+  {
+    "item": 125,
+    "code": "44818113",
+    "description": "SOQUETE ESTRIADO 3/8 13MM",
+    "quantity": 1
+  },
+  {
+    "item": 126,
+    "code": "44818114",
+    "description": "SOQUETE ESTRIADO 3/8 14MM",
+    "quantity": 1
+  },
+  {
+    "item": 127,
+    "code": "44818115",
+    "description": "SOQUETE ESTRIADO 3/8 15MM",
+    "quantity": 1
+  },
+  {
+    "item": 128,
+    "code": "44818116",
+    "description": "SOQUETE ESTRIADO 3/8 16MM",
+    "quantity": 1
+  },
+  {
+    "item": 129,
+    "code": "44818117",
+    "description": "SOQUETE ESTRIADO 3/8 17MM",
+    "quantity": 1
+  },
+  {
+    "item": 130,
+    "code": "44818118",
+    "description": "SOQUETE ESTRIADO 3/8 18MM",
+    "quantity": 1
+  },
+  {
+    "item": 131,
+    "code": "44818119",
+    "description": "SOQUETE ESTRIADO 3/8 19MM",
+    "quantity": 1
+  },
+  {
+    "item": 132,
+    "code": "44818121",
+    "description": "SOQUETE ESTRIADO 3/8 21MM",
+    "quantity": 1
+  },
+  {
+    "item": 133,
+    "code": "44818122",
+    "description": "SOQUETE ESTRIADO 3/8 22MM",
+    "quantity": 1
+  },
+  {
+    "item": 134,
+    "code": "44819101",
+    "description": "SOQUETE ESTRIADO 3/8 9/16",
+    "quantity": 1
+  },
+  {
+    "item": 135,
+    "code": "44819102",
+    "description": "SOQUETE ESTRIADO 3/8 5/8",
+    "quantity": 1
+  },
+  {
+    "item": 136,
+    "code": "44819103",
+    "description": "SOQUETE ESTRIADO 3/8 11/16",
+    "quantity": 1
+  },
+  {
+    "item": 137,
+    "code": "44819104",
+    "description": "SOQUETE ESTRIADO 3/8 3/4",
+    "quantity": 1
+  },
+  {
+    "item": 138,
+    "code": "44819105",
+    "description": "SOQUETE ESTRIADO 3/8 13/16",
+    "quantity": 1
+  },
+  {
+    "item": 139,
+    "code": "44819106",
+    "description": "SOQUETE ESTRIADO 3/8 7/8",
+    "quantity": 1
+  },
+  {
+    "item": 140,
+    "code": "44819110",
+    "description": "SOQUETE ESTRIADO 3/8 - 5/16",
+    "quantity": 1
+  },
+  {
+    "item": 141,
+    "code": "44819112",
+    "description": "SOQUETE ESTRIADO 3/8 - 3/8",
+    "quantity": 1
+  },
+  {
+    "item": 142,
+    "code": "44819113",
+    "description": "SOQUETE ESTRIADO 3/8 - 7/16",
+    "quantity": 1
+  },
+  {
+    "item": 143,
+    "code": "44819114",
+    "description": "SOQUETE ESTRIADO 3/8  - 1/2",
+    "quantity": 1
+  },
+  {
+    "item": 144,
+    "code": "44821105",
+    "description": "EXTENSAO 3/8 - 5",
+    "quantity": 1
+  },
+  {
+    "item": 145,
+    "code": "44821110",
+    "description": "EXTENSAO 3/8 10",
+    "quantity": 1
+  },
+  {
+    "item": 146,
+    "code": "44823101",
+    "description": "JUNTA UNIVERSAL 3/8",
+    "quantity": 1
+  },
+  {
+    "item": 147,
+    "code": "44826108",
+    "description": "CATRACA 3/8 8",
+    "quantity": 1
+  },
+  {
+    "item": 148,
+    "code": "44833110",
+    "description": "SOQUETE ESTRIADO 1/2 10MM",
+    "quantity": 1
+  },
+  {
+    "item": 149,
+    "code": "44833111",
+    "description": "SOQUETE ESTRIADO 1/2 11MM",
+    "quantity": 1
+  },
+  {
+    "item": 150,
+    "code": "44833112",
+    "description": "SOQUETE ESTRIADO 1/2 12MM",
+    "quantity": 1
+  },
+  {
+    "item": 151,
+    "code": "44833113",
+    "description": "SOQUETE ESTRIADO 1/2 13MM",
+    "quantity": 1
+  },
+  {
+    "item": 152,
+    "code": "44833114",
+    "description": "SOQUETE ESTRIADO 1/2 14MM",
+    "quantity": 1
+  },
+  {
+    "item": 153,
+    "code": "44833115",
+    "description": "SOQUETE ESTRIADO 1/2 15MM",
+    "quantity": 1
+  },
+  {
+    "item": 154,
+    "code": "44833116",
+    "description": "SOQUETE ESTRIADO 1/2 16MM",
+    "quantity": 1
+  },
+  {
+    "item": 155,
+    "code": "44833117",
+    "description": "SOQUETE ESTRIADO 1/2 17MM",
+    "quantity": 1
+  },
+  {
+    "item": 156,
+    "code": "44833118",
+    "description": "SOQUETE ESTRIADO 1/2 18MM",
+    "quantity": 1
+  },
+  {
+    "item": 157,
+    "code": "44833119",
+    "description": "SOQUETE ESTRIADO 1/2 19MM",
+    "quantity": 1
+  },
+  {
+    "item": 158,
+    "code": "44833120",
+    "description": "SOQUETE ESTRIADO 1/2 20MM",
+    "quantity": 1
+  },
+  {
+    "item": 159,
+    "code": "44833121",
+    "description": "SOQUETE ESTRIADO 1/2 21MM",
+    "quantity": 1
+  },
+  {
+    "item": 160,
+    "code": "44833124",
+    "description": "SOQUETE ESTRIADO 1/2 24MM",
+    "quantity": 1
+  },
+  {
+    "item": 161,
+    "code": "44833127",
+    "description": "SOQUETE ESTRIADO 1/2 27MM",
+    "quantity": 1
+  },
+  {
+    "item": 162,
+    "code": "44833130",
+    "description": "SOQUETE ESTRIADO 1/2 30MM",
+    "quantity": 1
+  },
+  {
+    "item": 163,
+    "code": "44833132",
+    "description": "SOQUETE ESTRIADO 1/2 32MM",
+    "quantity": 1
+  },
+  {
+    "item": 164,
+    "code": "44834116",
+    "description": "SOQUETE ESTRIADO 1/2 1.1/4",
+    "quantity": 1
+  },
+  {
+    "item": 165,
+    "code": "44835110",
+    "description": "CABO T 1/2 10",
+    "quantity": 1
+  },
+  {
+    "item": 166,
+    "code": "44836105",
+    "description": "EXTENSAO 1/2 5",
+    "quantity": 1
+  },
+  {
+    "item": 167,
+    "code": "44836110",
+    "description": "EXTENSAO 1/2 10",
+    "quantity": 1
+  },
+  {
+    "item": 168,
+    "code": "44841112",
+    "description": "CATRACA TELESCOPICA 1/2 12",
+    "quantity": 1
+  },
+  {
+    "item": 169,
+    "code": "44845104",
+    "description": "SOQUETE PONTA HEX. 1/2 4MM",
+    "quantity": 1
+  },
+  {
+    "item": 170,
+    "code": "44845105",
+    "description": "SOQUETE PONTA HEX. 1/2 5MM",
+    "quantity": 1
+  },
+  {
+    "item": 171,
+    "code": "44845106",
+    "description": "SOQUETE PONTA HEX. 1/2 6MM",
+    "quantity": 1
+  },
+  {
+    "item": 172,
+    "code": "44845108",
+    "description": "SOQUETE PONTA HEX. 1/2 8MM",
+    "quantity": 1
+  },
+  {
+    "item": 173,
+    "code": "44845110",
+    "description": "SOQUETE PONTA HEX. 1/2 10MM",
+    "quantity": 1
+  },
+  {
+    "item": 174,
+    "code": "44845112",
+    "description": "SOQUETE PONTA HEX. 1/2 12MM",
+    "quantity": 1
+  },
+  {
+    "item": 175,
+    "code": "44845114",
+    "description": "SOQUETE PONTA HEX. 1/2 14MM",
+    "quantity": 1
+  },
+  {
+    "item": 176,
+    "code": "44845117",
+    "description": "SOQUETE PONTA HEX. 1/2 17MM",
+    "quantity": 1
+  },
+  {
+    "item": 177,
+    "code": "44853122",
+    "description": "SOQUETE ESTRIADO 3/4 22MM",
+    "quantity": 1
+  },
+  {
+    "item": 178,
+    "code": "44853124",
+    "description": "SOQUETE ESTRIADO 3/4 24MM",
+    "quantity": 1
+  },
+  {
+    "item": 179,
+    "code": "44853127",
+    "description": "SOQUETE ESTRIADO 3/4 27MM",
+    "quantity": 1
+  },
+  {
+    "item": 180,
+    "code": "44853130",
+    "description": "SOQUETE ESTRIADO 3/4 30MM",
+    "quantity": 1
+  },
+  {
+    "item": 181,
+    "code": "44853132",
+    "description": "SOQUETE ESTRIADO 3/4 32MM",
+    "quantity": 1
+  },
+  {
+    "item": 182,
+    "code": "44853134",
+    "description": "SOQUETE ESTRIADO 3/4 34MM",
+    "quantity": 1
+  },
+  {
+    "item": 183,
+    "code": "44853136",
+    "description": "SOQUETE ESTRIADO 3/4 36MM",
+    "quantity": 1
+  },
+  {
+    "item": 184,
+    "code": "44853138",
+    "description": "SOQUETE ESTRIADO 3/4 38MM",
+    "quantity": 1
+  },
+  {
+    "item": 185,
+    "code": "44853141",
+    "description": "SOQUETE ESTRIADO 3/4 41MM",
+    "quantity": 1
+  },
+  {
+    "item": 186,
+    "code": "44853148",
+    "description": "SOQUETE ESTRIADO 3/4 48MM",
+    "quantity": 1
+  },
+  {
+    "item": 187,
+    "code": "44853150",
+    "description": "SOQUETE ESTRIADO 3/4 50MM",
+    "quantity": 1
+  },
+  {
+    "item": 188,
+    "code": "44879113",
+    "description": "SOQUETE SEXTAVADO IMPACTO 1/21",
+    "quantity": 1
+  },
+  {
+    "item": 189,
+    "code": "44880110",
+    "description": "SOQ. SEXT. IMPACTO 1/2 10MM",
+    "quantity": 1
+  },
+  {
+    "item": 190,
+    "code": "44880111",
+    "description": "SOQ. SEXT. IMPACTO 1/2 11MM",
+    "quantity": 1
+  },
+  {
+    "item": 191,
+    "code": "44880112",
+    "description": "SOQ. SEXT. IMPACTO 1/2 12MM",
+    "quantity": 1
+  },
+  {
+    "item": 192,
+    "code": "44880113",
+    "description": "SOQ. SEXT. IMPACTO 1/2 13MM",
+    "quantity": 1
+  },
+  {
+    "item": 193,
+    "code": "44880114",
+    "description": "SOQ. SEXT. IMPACTO 1/2 14MM",
+    "quantity": 1
+  },
+  {
+    "item": 194,
+    "code": "44880115",
+    "description": "SOQ. SEXT. IMPACTO 1/2 15MM",
+    "quantity": 1
+  },
+  {
+    "item": 195,
+    "code": "44880116",
+    "description": "SOQ. SEXT. IMPACTO 1/2 16MM",
+    "quantity": 1
+  },
+  {
+    "item": 196,
+    "code": "44880117",
+    "description": "SOQ. SEXT. IMPACTO 1/2 17MM",
+    "quantity": 1
+  },
+  {
+    "item": 197,
+    "code": "44880118",
+    "description": "SOQ. SEXT. IMPACTO 1/2 18MM",
+    "quantity": 1
+  },
+  {
+    "item": 198,
+    "code": "44880119",
+    "description": "SOQ. SEXT. IMPACTO 1/2 19MM",
+    "quantity": 1
+  },
+  {
+    "item": 199,
+    "code": "44880120",
+    "description": "SOQ. SEXT. IMPACTO 1/2 20MM",
+    "quantity": 1
+  },
+  {
+    "item": 200,
+    "code": "44880121",
+    "description": "SOQ. SEXT. IMPACTO 1/2 21MM",
+    "quantity": 1
+  },
+  {
+    "item": 201,
+    "code": "44880122",
+    "description": "SOQ. SEXT. IMPACTO 1/2 22MM",
+    "quantity": 1
+  },
+  {
+    "item": 202,
+    "code": "44880124",
+    "description": "SOQ. SEXT. IMPACTO 1/2 24MM",
+    "quantity": 1
+  },
+  {
+    "item": 203,
+    "code": "44880127",
+    "description": "SOQ. SEXT. IMPACTO 1/2 27MM",
+    "quantity": 1
+  },
+  {
+    "item": 204,
+    "code": "44880130",
+    "description": "SOQ. SEXT. IMPACTO 1/2 30MM",
+    "quantity": 1
+  },
+  {
+    "item": 205,
+    "code": "44880132",
+    "description": "SOQ. SEXT. IMPACTO 1/2 32MM",
+    "quantity": 1
+  },
+  {
+    "item": 206,
+    "code": "44881004",
+    "description": "PONTEIRA PONTA CRUZADA 8X36MM",
+    "quantity": 1
+  },
+  {
+    "item": 207,
+    "code": "44885108",
+    "description": "SOQ. IMPACTO LONGO 1/2 8MM",
+    "quantity": 1
+  },
+  {
+    "item": 208,
+    "code": "44885110",
+    "description": "SOQ. IMPACTO LONGO 1/2 10MM",
+    "quantity": 1
+  },
+  {
+    "item": 209,
+    "code": "44890119",
+    "description": "SOQ. SEXT. IMPACTO 3/4 19MM",
+    "quantity": 1
+  },
+  {
+    "item": 210,
+    "code": "44890121",
+    "description": "SOQ. SEXT. IMPACTO 3/4 21MM",
+    "quantity": 1
+  },
+  {
+    "item": 211,
+    "code": "44890122",
+    "description": "SOQ. SEXT. IMPACTO 3/4 22MM",
+    "quantity": 1
+  },
+  {
+    "item": 212,
+    "code": "44890124",
+    "description": "SOQ. SEXT. IMPACTO 3/4 24MM",
+    "quantity": 1
+  },
+  {
+    "item": 213,
+    "code": "44890127",
+    "description": "SOQ. SEXT. IMPACTO 3/4 27MM",
+    "quantity": 1
+  },
+  {
+    "item": 214,
+    "code": "44890130",
+    "description": "SOQ. SEXT. IMPACTO 3/4 30MM",
+    "quantity": 1
+  },
+  {
+    "item": 215,
+    "code": "44890132",
+    "description": "SOQ. SEXT. IMPACTO 3/4 32MM",
+    "quantity": 1
+  },
+  {
+    "item": 216,
+    "code": "44890136",
+    "description": "SOQ. SEXT. IMPACTO 3/4 36MM",
+    "quantity": 1
+  },
+  {
+    "item": 217,
+    "code": "44890138",
+    "description": "SOQ. SEXT. IMPACTO 3/4 38MM",
+    "quantity": 1
+  },
+  {
+    "item": 218,
+    "code": "44890141",
+    "description": "SOQ. SEXT. IMPACTO 3/4 41MM",
+    "quantity": 1
+  },
+  {
+    "item": 219,
+    "code": "44890146",
+    "description": "SOQ. SEXT. IMPACTO 3/4 46MM",
+    "quantity": 1
+  },
+  {
+    "item": 220,
+    "code": "44892107",
+    "description": "SOQ. SEXT. IMPACTO 3/4 1.1/8",
+    "quantity": 1
+  },
+  {
+    "item": 221,
+    "code": "44892110",
+    "description": "SOQ. SEXT. IMPACTO 3/4 1.5/16",
+    "quantity": 1
+  },
+  {
+    "item": 222,
+    "code": "44901104",
+    "description": "SOQUETE DE IMPACTO C/PON.SEX.4MM",
+    "quantity": 1
+  },
+  {
+    "item": 223,
+    "code": "44901106",
+    "description": "SOQUETE DE IMPACTO C/PON.SEX.6MM",
+    "quantity": 1
+  },
+  {
+    "item": 224,
+    "code": "44901107",
+    "description": "SOQUETE DE IMPACTO C/PON.SEX.7MM",
+    "quantity": 1
+  },
+  {
+    "item": 225,
+    "code": "44901108",
+    "description": "SOQUETE DE IMPACTO C/PON.SEX.8MM",
+    "quantity": 1
+  },
+  {
+    "item": 226,
+    "code": "44901110",
+    "description": "SOQUETE DE IMPACTO C/PON.SEX.10MM",
+    "quantity": 1
+  },
+  {
+    "item": 227,
+    "code": "44901112",
+    "description": "SOQUETE DE IMPACTO C/PON.SEX.12MM",
+    "quantity": 1
+  },
+  {
+    "item": 228,
+    "code": "44901114",
+    "description": "SOQUETE DE IMPACTO C/PON.SEX.14MM",
+    "quantity": 1
+  },
+  {
+    "item": 229,
+    "code": "44901117",
+    "description": "SOQUETE DE IMPACTO C/PON.SEX.17MM",
+    "quantity": 1
+  },
+  {
+    "item": 230,
+    "code": "44903130",
+    "description": "SOQUETE DE IMPACTO PON.TRAFIX.30MM",
+    "quantity": 1
+  },
+  {
+    "item": 231,
+    "code": "44903140",
+    "description": "SOQUETE DE IMPACTO PON.TRAFIX 40MM",
+    "quantity": 1
+  },
+  {
+    "item": 232,
+    "code": "44903145",
+    "description": "SOQUETE DE IMPACTO PON.TRAFIX 45MM",
+    "quantity": 1
+  },
+  {
+    "item": 233,
+    "code": "44903150",
+    "description": "SOQUETE DE IMPACTO PON.TRAFIX 50MM",
+    "quantity": 1
+  },
+  {
+    "item": 234,
+    "code": "44903155",
+    "description": "SOQUETE DE IMPACTO PON.TRAFIX 55MM",
+    "quantity": 1
+  },
+  {
+    "item": 235,
+    "code": "44903160",
+    "description": "SOQUETE DE IMPACTO PON.TRAFIX 60MM",
+    "quantity": 1
+  },
+  {
+    "item": 236,
+    "code": "44957990",
+    "description": "EVA PICKUP BOX 880X400X40 MM",
+    "quantity": 5
+  },
+  {
+    "item": 237,
+    "code": "44958007",
+    "description": "CAIXA PICKUP BOX 840X1000X500 MM",
+    "quantity": 1
+  },
+  {
+    "item": 238,
+    "code": "Kit-N2",
+    "description": "Kit Manômetro",
+    "quantity": 1
+  },
+  {
+    "item": 239,
+    "code": "JDG10466",
+    "description": "Caixa Sondas",
+    "quantity": 1
+  },
+  {
+    "item": 240,
+    "code": "ET-2082E",
+    "description": "Múltimetro digital",
+    "quantity": 1
+  },
+  {
+    "item": 241,
+    "code": "MDT-2244C",
+    "description": "Tacômetro",
+    "quantity": 1
+  },
+  {
+    "item": 242,
+    "code": "MT-320A",
+    "description": "Termometro Infravermelho",
+    "quantity": 1
+  },
+  {
+    "item": 243,
+    "code": "DTW450Z",
+    "description": "Chave de Impacto",
+    "quantity": 1
+  },
+  {
+    "item": 244,
+    "code": "BL1830B",
+    "description": "Chave de Impacto Bateria",
+    "quantity": 2
+  },
+  {
+    "item": 245,
+    "code": "DC18RC",
+    "description": "Chave de Impacto Carregador Bateria",
+    "quantity": 1
+  }
+]
