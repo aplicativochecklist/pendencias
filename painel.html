@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de Acompanhamento - Ferramentas e Pendências</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f4f4f9; margin: 0; padding: 20px; color: #333; }
+        .container { max-width: 1000px; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: auto; }
+        h1 { background: #ffcc00; color: #000; text-align: center; padding: 15px; border-radius: 4px; font-size: 20px; margin-top: 0; }
+        .filters { display: flex; gap: 15px; margin-bottom: 20px; flex-wrap: wrap; }
+        .filters div { flex: 1; min-width: 200px; display: flex; flex-direction: column; }
+        .filters label { font-weight: bold; font-size: 13px; margin-bottom: 5px; }
+        .filters select, .filters input { padding: 8px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 13px; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+        th { background: #2c3e50; color: white; }
+        tr:nth-child(even) { background: #fafafa; }
+        .loading { text-align: center; font-weight: bold; padding: 20px; color: #666; }
+        .badge-filial { background: #e0e0e0; padding: 3px 8px; border-radius: 4px; font-weight: bold; font-size: 11px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>PAINEL DE ACOMPANHAMENTO - CHECKLISTS E NECESSIDADES</h1>
+    
+    <div class="filters">
+        <div>
+            <label for="filtroFilial">Filtrar por Filial:</label>
+            <select id="filtroFilial" onchange="filtrarDados()">
+                <option value="">Todas as Filiais</option>
+                <option value="Cuiabá - MT">Cuiabá - MT</option>
+                <option value="Sapezal - MT">Sapezal - MT</option>
+                <option value="Goiânia - GO">Goiânia - GO</option>
+                <option value="Campo Grande - MS">Campo Grande - MS</option>
+            </select>
+        </div>
+        <div>
+            <label for="filtroBusca">Pesquisar Técnico / Item:</label>
+            <input type="text" id="filtroBusca" placeholder="Digite nome ou ferramenta..." onkeyup="filtrarDados()">
+        </div>
+    </div>
+
+    <div id="loading" class="loading">Carregando dados da planilha...</div>
+
+    <div style="overflow-x: auto;">
+        <table id="tabelaDados" style="display: none;">
+            <thead>
+                <tr>
+                    <th>Data</th>
+                    <th>Técnico</th>
+                    <th>Filial</th>
+                    <th>Ferramentas Extras / Solicitações</th>
+                    <th>Local</th>
+                </tr>
+            </thead>
+            <tbody id="corpoTabela">
+                <!-- Preenchido via JavaScript -->
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxfexbYIqKjeWqHtJ6jsur3zuwW4O5sOHrtme4lsmMsFJA_2tfvvGpiAtbtv0zrShcm4Q/exec";
+    let dadosGlobais = [];
+
+    async function carregarDadosPainel() {
+        try {
+            const resposta = await fetch(`${WEB_APP_URL}?acao=dados`);
+            const resultado = await resposta.json();
+            
+            if (resultado.erro) {
+                alert("Erro ao carregar dados: " + resultado.erro);
+                return;
+            }
+
+            dadosGlobais = resultado;
+            renderizarTabela(dadosGlobais);
+            document.getElementById("loading").style.display = "none";
+            document.getElementById("tabelaDados").style.display = "table";
+        } catch (erro) {
+            console.error(erro);
+            document.getElementById("loading").innerText = "Erro ao conectar com a planilha.";
+        }
+    }
+
+    function renderizarTabela(dados) {
+        const tbody = document.getElementById("corpoTabela");
+        tbody.innerHTML = "";
+
+        if (dados.length === 0) {
+            tbody.innerHTML = `<tr><td colspan="5" style="text-align: center;">Nenhum registro encontrado.</td></tr>`;
+            return;
+        }
+
+        dados.forEach(item => {
+            const dataFormatada = item.data ? new Date(item.data).toLocaleDateString("pt-BR") : "";
+            const tr = document.createElement("tr");
+            tr.innerHTML = `
+                <td>${dataFormatada}</td>
+                <td><strong>${item.tecnico}</strong><br><small>CPF: ${item.cpf}</small></td>
+                <td><span class="badge-filial">${item.filial}</span></td>
+                <td>${item.itensExtras || "<span style='color:#888;'>Nenhum item extra / Apenas padrão</span>"}</td>
+                <td>${item.local}</td>
+            `;
+            tbody.appendChild(tr);
+        });
+    }
+
+    function filtrarDados() {
+        const filialFiltro = document.getElementById("filtroFilial").value.toLowerCase();
+        const buscaFiltro = document.getElementById("filtroBusca").value.toLowerCase();
+
+        const filtrados = dadosGlobais.filter(item => {
+            const matchFilial = filialFiltro === "" || item.filial.toLowerCase().includes(filialFiltro);
+            const matchBusca = buscaFiltro === "" || 
+                item.tecnico.toLowerCase().includes(buscaFiltro) || 
+                (item.itensExtras && item.itensExtras.toLowerCase().includes(buscaFiltro));
+            return matchFilial && matchBusca;
+        });
+
+        renderizarTabela(filtrados);
+    }
+
+    carregarDadosPainel();
+</script>
+
+</body>
+</html>
