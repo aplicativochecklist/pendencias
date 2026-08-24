@@ -9,7 +9,7 @@
         .container { max-width: 1100px; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: auto; }
         h1 { background: #ffcc00; color: #000; text-align: center; padding: 15px; border-radius: 4px; font-size: 20px; margin-top: 0; }
         .filters { display: flex; gap: 15px; margin-bottom: 20px; flex-wrap: wrap; }
-        .filters div { flex: 1; min-width: 200px; display: flex; flex-direction: column; }
+        .filters div { flex: 1; min-width: 220px; display: flex; flex-direction: column; }
         .filters label { font-weight: bold; font-size: 13px; margin-bottom: 5px; }
         .filters select, .filters input { padding: 8px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px; }
         table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 13px; }
@@ -29,7 +29,7 @@
     <div class="filters">
         <div>
             <label for="filtroFilial">Filtrar por Filial:</label>
-            <select id="filtroFilial" onchange="filtrarDados()">
+            <select id="filtroFilial" onchange="atualizarFiltrosTecnicos(); filtrarDados();">
                 <option value="">Todas as Filiais</option>
                 <option value="Cuiabá - MT">Cuiabá - MT</option>
                 <option value="Sapezal - MT">Sapezal - MT</option>
@@ -38,8 +38,10 @@
             </select>
         </div>
         <div>
-            <label for="filtroBusca">Pesquisar Técnico / CPF:</label>
-            <input type="text" id="filtroBusca" placeholder="Digite nome ou CPF..." onkeyup="filtrarDados()">
+            <label for="filtroTecnico">Selecionar Técnico:</label>
+            <select id="filtroTecnico" onchange="filtrarDados()">
+                <option value="">Todos os Técnicos</option>
+            </select>
         </div>
     </div>
 
@@ -50,6 +52,7 @@
             <thead>
                 <tr>
                     <th>Data da Última Checagem</th>
+                    <th>Tipo</th>
                     <th>Técnico / CPF</th>
                     <th>Filial</th>
                     <th>Itens Extras / Pendências a Tratar</th>
@@ -77,19 +80,20 @@
                 return;
             }
 
-            // Agrupa por CPF ou Nome do técnico para pegar SOMENTE O MAIS RECENTE
+            // Agrupa por CPF ou Nome para manter SOMENTE O ÚLTIMO checklist de cada técnico
             const mapaUltimos = {};
             resultado.forEach(item => {
                 if (!item.tecnico) return;
                 const chave = item.cpf ? item.cpf.trim() : item.tecnico.trim();
-                const dataItem = new Date(item.data || 0);
-
-                if (!mapaUltimos[chave] || dataItem > new Date(mapaUltimos[chave].data || 0)) {
+                
+                // Prioriza pegar o mais recente baseado na data
+                if (!mapaUltimos[chave] || new Date(item.data || 0) > new Date(mapaUltimos[chave].data || 0)) {
                     mapaUltimos[chave] = item;
                 }
             });
 
             dadosGlobais = Object.values(mapaUltimos);
+            preencherSelectTecnicos(dadosGlobais);
             renderizarTabela(dadosGlobais);
             document.getElementById("loading").style.display = "none";
             document.getElementById("tabelaDados").style.display = "table";
@@ -99,20 +103,48 @@
         }
     }
 
+    function preencherSelectTecnicos(dados) {
+        const select = document.getElementById("filtroTecnico");
+        const filialAtual = document.getElementById("filtroFilial").value.toLowerCase();
+        
+        select.innerHTML = '<option value="">Todos os Técnicos</option>';
+        
+        const filtrados = dados.filter(item => {
+            return filialAtual === "" || (item.filial && item.filial.toLowerCase().includes(filialAtual));
+        });
+
+        filtrados.forEach(item => {
+            const opt = document.createElement("option");
+            opt.value = item.tecnico;
+            opt.textContent = item.tecnico;
+            select.appendChild(opt);
+        });
+    }
+
+    function atualizarFiltrosTecnicos() {
+        preencherSelectTecnicos(dadosGlobais);
+    }
+
     function renderizarTabela(dados) {
         const tbody = document.getElementById("corpoTabela");
         tbody.innerHTML = "";
 
         if (dados.length === 0) {
-            tbody.innerHTML = `<tr><td colspan="5" style="text-align: center;">Nenhum registro encontrado.</td></tr>`;
+            tbody.innerHTML = `<tr><td colspan="6" style="text-align: center;">Nenhum registro encontrado.</td></tr>`;
             return;
         }
 
         dados.forEach(item => {
-            const dataFormatada = item.data ? new Date(item.data).toLocaleDateString("pt-BR") : "";
+            let dataFormatada = "";
+            if (item.data) {
+                const d = new Date(item.data);
+                dataFormatada = !isNaN(d.getTime()) ? d.toLocaleString("pt-BR") : item.data;
+            }
+
             const tr = document.createElement("tr");
             tr.innerHTML = `
                 <td>${dataFormatada}</td>
+                <td><span style="font-size:11px; font-weight:bold; background:#eef2f7; padding:2px 6px; border-radius:3px;">${item.tipoChecklist || "Checklist"}</span></td>
                 <td><strong>${item.tecnico}</strong><br><small>CPF: ${item.cpf}</small></td>
                 <td><span class="badge-filial">${item.filial}</span></td>
                 <td><span class="pendencia-destaque">${item.itensExtras || "Nenhuma pendência extra / Apenas padrão"}</span></td>
@@ -124,14 +156,12 @@
 
     function filtrarDados() {
         const filialFiltro = document.getElementById("filtroFilial").value.toLowerCase();
-        const buscaFiltro = document.getElementById("filtroBusca").value.toLowerCase();
+        const tecnicoFiltro = document.getElementById("filtroTecnico").value.toLowerCase();
 
         const filtrados = dadosGlobais.filter(item => {
-            const matchFilial = filialFiltro === "" || item.filial.toLowerCase().includes(filialFiltro);
-            const matchBusca = buscaFiltro === "" || 
-                item.tecnico.toLowerCase().includes(buscaFiltro) || 
-                (item.cpf && item.cpf.toLowerCase().includes(buscaFiltro));
-            return matchFilial && matchBusca;
+            const matchFilial = filialFiltro === "" || (item.filial && item.filial.toLowerCase().includes(filialFiltro));
+            const matchTecnico = tecnicoFiltro === "" || (item.tecnico && item.tecnico.toLowerCase() === tecnicoFiltro);
+            return matchFilial && matchTecnico;
         });
 
         renderizarTabela(filtrados);
