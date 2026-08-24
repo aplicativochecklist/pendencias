@@ -72,7 +72,7 @@
 
     async function carregarDadosPainel() {
         try {
-            const resposta = await fetch(`${WEB_APP_URL}?acao=dados`);
+            const resposta = await fetch(WEB_APP_URL);
             const resultado = await resposta.json();
             
             if (resultado.erro) {
@@ -98,7 +98,7 @@
             document.getElementById("tabelaDados").style.display = "table";
         } catch (erro) {
             console.error(erro);
-            document.getElementById("loading").innerHTML = `<span style="color:red;">Erro ao conectar com o Apps Script. Verifique se a URL está correta e implantada como "Qualquer pessoa".</span>`;
+            document.getElementById("loading").innerHTML = `<span style="color:red;">Erro ao conectar com o Apps Script. Verifique a URL.</span>`;
         }
     }
 
