@@ -67,39 +67,44 @@
 </div>
 
 <script>
-    const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxfexbYIqKjeWqHtJ6jsur3zuwW4O5sOHrtme4lsmMsFJA_2tfvvGpiAtbtv0zrShcm4Q/exec";
+    const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbylHxeAmcuf48FrJsze8BrWRIFsYEQ6DtmqT6aLKPAdUz4IVGUMLZlC2RXf-Z0g4ZWYSQ/exec";
     let dadosGlobais = [];
 
-    async function carregarDadosPainel() {
-        try {
-            const resposta = await fetch(WEB_APP_URL);
-            const resultado = await resposta.json();
-            
-            if (resultado.erro) {
-                document.getElementById("loading").innerHTML = `<span style="color:red;">${resultado.erro}</span>`;
-                return;
-            }
-
-            // Agrupa por CPF ou Nome para manter SOMENTE O ÚLTIMO checklist de cada técnico
-            const mapaUltimos = {};
-            resultado.forEach(item => {
-                if (!item.tecnico) return;
-                const chave = item.cpf ? item.cpf.trim() : item.tecnico.trim();
-                
-                if (!mapaUltimos[chave] || new Date(item.data || 0) > new Date(mapaUltimos[chave].data || 0)) {
-                    mapaUltimos[chave] = item;
-                }
-            });
-
-            dadosGlobais = Object.values(mapaUltimos);
-            preencherSelectTecnicos(dadosGlobais);
-            renderizarTabela(dadosGlobais);
-            document.getElementById("loading").style.display = "none";
-            document.getElementById("tabelaDados").style.display = "table";
-        } catch (erro) {
-            console.error(erro);
-            document.getElementById("loading").innerHTML = `<span style="color:red;">Erro ao conectar com o Apps Script. Verifique a URL.</span>`;
+    function processarDados(resultado) {
+        if (!resultado || resultado.erro) {
+            document.getElementById("loading").innerHTML = `<span style="color:red;">Erro na planilha: ${resultado ? resultado.erro : "Sem resposta"}</span>`;
+            return;
         }
+
+        // Agrupa para manter SOMENTE O ÚLTIMO checklist de cada técnico
+        const mapaUltimos = {};
+        resultado.forEach(item => {
+            if (!item.tecnico) return;
+            const chave = item.cpf ? item.cpf.trim() : item.tecnico.trim();
+            
+            if (!mapaUltimos[chave] || new Date(item.data || 0) > new Date(mapaUltimos[chave].data || 0)) {
+                mapaUltimos[chave] = item;
+            }
+        });
+
+        dadosGlobais = Object.values(mapaUltimos);
+        preencherSelectTecnicos(dadosGlobais);
+        renderizarTabela(dadosGlobais);
+        document.getElementById("loading").style.display = "none";
+        document.getElementById("tabelaDados").style.display = "table";
+    }
+
+    function carregarDadosPainel() {
+        // Método via Fetch com modo no-cors/fallback ou requisição direta via Script
+        fetch(WEB_APP_URL)
+            .then(res => res.json())
+            .then(data => processarDados(data))
+            .catch(err => {
+                // Fallback usando script injection se o fetch for bloqueado
+                const script = document.createElement('script');
+                script.src = `${WEB_APP_URL}?callback=processarDados`;
+                document.body.appendChild(script);
+            });
     }
 
     function preencherSelectTecnicos(dados) {
