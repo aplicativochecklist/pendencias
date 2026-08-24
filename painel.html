@@ -76,7 +76,7 @@
             const resultado = await resposta.json();
             
             if (resultado.erro) {
-                alert("Erro ao carregar dados: " + resultado.erro);
+                document.getElementById("loading").innerHTML = `<span style="color:red;">${resultado.erro}</span>`;
                 return;
             }
 
@@ -86,7 +86,6 @@
                 if (!item.tecnico) return;
                 const chave = item.cpf ? item.cpf.trim() : item.tecnico.trim();
                 
-                // Prioriza pegar o mais recente baseado na data
                 if (!mapaUltimos[chave] || new Date(item.data || 0) > new Date(mapaUltimos[chave].data || 0)) {
                     mapaUltimos[chave] = item;
                 }
@@ -99,7 +98,7 @@
             document.getElementById("tabelaDados").style.display = "table";
         } catch (erro) {
             console.error(erro);
-            document.getElementById("loading").innerText = "Erro ao conectar com a planilha.";
+            document.getElementById("loading").innerHTML = `<span style="color:red;">Erro ao conectar com o Apps Script. Verifique se a URL está correta e implantada como "Qualquer pessoa".</span>`;
         }
     }
 
