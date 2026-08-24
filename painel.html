@@ -3,27 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Painel de Acompanhamento - Ferramentas e Pendências</title>
+    <title>Painel de Acompanhamento - Pendências e Ferramentas</title>
     <style>
         body { font-family: Arial, sans-serif; background: #f4f4f9; margin: 0; padding: 20px; color: #333; }
-        .container { max-width: 1000px; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: auto; }
+        .container { max-width: 1100px; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: auto; }
         h1 { background: #ffcc00; color: #000; text-align: center; padding: 15px; border-radius: 4px; font-size: 20px; margin-top: 0; }
         .filters { display: flex; gap: 15px; margin-bottom: 20px; flex-wrap: wrap; }
         .filters div { flex: 1; min-width: 200px; display: flex; flex-direction: column; }
         .filters label { font-weight: bold; font-size: 13px; margin-bottom: 5px; }
         .filters select, .filters input { padding: 8px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px; }
         table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 13px; }
-        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; vertical-align: top; }
         th { background: #2c3e50; color: white; }
         tr:nth-child(even) { background: #fafafa; }
         .loading { text-align: center; font-weight: bold; padding: 20px; color: #666; }
         .badge-filial { background: #e0e0e0; padding: 3px 8px; border-radius: 4px; font-weight: bold; font-size: 11px; }
+        .pendencia-destaque { color: #c0392b; font-weight: bold; }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <h1>PAINEL DE ACOMPANHAMENTO - CHECKLISTS E NECESSIDADES</h1>
+    <h1>PAINEL DE PENDÊNCIAS - ÚLTIMO CHECKLIST POR TÉCNICO</h1>
     
     <div class="filters">
         <div>
@@ -37,8 +38,8 @@
             </select>
         </div>
         <div>
-            <label for="filtroBusca">Pesquisar Técnico / Item:</label>
-            <input type="text" id="filtroBusca" placeholder="Digite nome ou ferramenta..." onkeyup="filtrarDados()">
+            <label for="filtroBusca">Pesquisar Técnico / CPF:</label>
+            <input type="text" id="filtroBusca" placeholder="Digite nome ou CPF..." onkeyup="filtrarDados()">
         </div>
     </div>
 
@@ -48,10 +49,10 @@
         <table id="tabelaDados" style="display: none;">
             <thead>
                 <tr>
-                    <th>Data</th>
-                    <th>Técnico</th>
+                    <th>Data da Última Checagem</th>
+                    <th>Técnico / CPF</th>
                     <th>Filial</th>
-                    <th>Ferramentas Extras / Solicitações</th>
+                    <th>Itens Extras / Pendências a Tratar</th>
                     <th>Local</th>
                 </tr>
             </thead>
@@ -76,7 +77,19 @@
                 return;
             }
 
-            dadosGlobais = resultado;
+            // Agrupa por CPF ou Nome do técnico para pegar SOMENTE O MAIS RECENTE
+            const mapaUltimos = {};
+            resultado.forEach(item => {
+                if (!item.tecnico) return;
+                const chave = item.cpf ? item.cpf.trim() : item.tecnico.trim();
+                const dataItem = new Date(item.data || 0);
+
+                if (!mapaUltimos[chave] || dataItem > new Date(mapaUltimos[chave].data || 0)) {
+                    mapaUltimos[chave] = item;
+                }
+            });
+
+            dadosGlobais = Object.values(mapaUltimos);
             renderizarTabela(dadosGlobais);
             document.getElementById("loading").style.display = "none";
             document.getElementById("tabelaDados").style.display = "table";
@@ -102,7 +115,7 @@
                 <td>${dataFormatada}</td>
                 <td><strong>${item.tecnico}</strong><br><small>CPF: ${item.cpf}</small></td>
                 <td><span class="badge-filial">${item.filial}</span></td>
-                <td>${item.itensExtras || "<span style='color:#888;'>Nenhum item extra / Apenas padrão</span>"}</td>
+                <td><span class="pendencia-destaque">${item.itensExtras || "Nenhuma pendência extra / Apenas padrão"}</span></td>
                 <td>${item.local}</td>
             `;
             tbody.appendChild(tr);
@@ -117,7 +130,7 @@
             const matchFilial = filialFiltro === "" || item.filial.toLowerCase().includes(filialFiltro);
             const matchBusca = buscaFiltro === "" || 
                 item.tecnico.toLowerCase().includes(buscaFiltro) || 
-                (item.itensExtras && item.itensExtras.toLowerCase().includes(buscaFiltro));
+                (item.cpf && item.cpf.toLowerCase().includes(buscaFiltro));
             return matchFilial && matchBusca;
         });
 
@@ -126,6 +139,6 @@
 
     carregarDadosPainel();
 </script>
- 
+
 </body>
 </html>
