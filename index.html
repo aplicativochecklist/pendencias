@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Ferramentas Padrão - Técnico</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f4f4f9; margin: 0; padding: 20px; color: #333; }
+        .container { max-width: 700px; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: auto; }
+        
+        .header-box { border: 1px solid #333; margin-bottom: 20px; border-radius: 4px; overflow: hidden; }
+        .header-title { background: #ffcc00; color: #000; text-align: center; font-weight: bold; padding: 10px; font-size: 16px; border-bottom: 1px solid #333; }
+        .header-fields { padding: 12px; background: #fdfdfd; }
+        .field-group { margin-bottom: 10px; display: flex; flex-direction: column; }
+        .field-group label { font-weight: bold; font-size: 14px; margin-bottom: 4px; color: #333; }
+        .field-group input, .field-group select, .field-group textarea { padding: 8px; font-size: 14px; border: 1px solid #ccc; border-radius: 4px; }
+
+        h2 { margin-top: 20px; color: #2c3e50; font-size: 18px; }
+        
+        .checklist-item { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; padding: 8px 12px; background: #fafafa; border: 1px solid #ddd; border-radius: 4px; font-size: 14px; }
+        .item-info { display: flex; align-items: center; flex: 1; }
+        .checklist-item input[type="checkbox"] { margin-right: 12px; transform: scale(1.2); }
+        
+        .badge-qtd { background: #e0e0e0; color: #333; font-weight: bold; padding: 2px 8px; border-radius: 12px; font-size: 12px; min-width: 30px; text-align: center; }
+        .foto-item { display: flex; align-items: center; gap: 6px; margin-left: 8px; }
+        .foto-item input[type="file"] { width: 110px; font-size: 11px; }
+        .foto-status { font-size: 11px; color: #218838; white-space: nowrap; }
+
+        .extra-section { margin-top: 20px; border: 1px solid #ccc; padding: 15px; border-radius: 4px; background: #fdfdfd; }
+        .extra-section h3 { margin-top: 0; font-size: 15px; color: #333; border-bottom: 2px solid #ffcc00; padding-bottom: 5px; }
+        .extra-row { display: flex; align-items: center; margin-bottom: 8px; gap: 10px; }
+        .extra-row span { font-size: 13px; font-weight: bold; color: #666; width: 25px; text-align: right; }
+        .extra-row input { flex: 1; padding: 6px 10px; font-size: 13px; border: 1px solid #ccc; border-radius: 4px; }
+        .extra-row input[type="number"] { flex: 0 0 70px; width: 70px; text-align: center; }
+        .extra-row input[type="file"] { flex: 0 0 115px; width: 115px; font-size: 11px; }
+
+        .obs-section { margin-top: 20px; border: 1px solid #ccc; padding: 15px; border-radius: 4px; background: #fdfdfd; }
+        .obs-section h3 { margin-top: 0; font-size: 15px; color: #333; border-bottom: 2px solid #ffcc00; padding-bottom: 5px; }
+
+        .term-box { border: 1px solid #333; padding: 15px; margin-top: 25px; margin-bottom: 20px; border-radius: 4px; background: #fafafa; font-size: 12px; line-height: 1.5; text-align: justify; }
+        .term-box p { margin-top: 0; }
+        .term-box ol { padding-left: 20px; margin-bottom: 0; }
+        .term-box li { margin-bottom: 8px; }
+        
+        .signature-area { display: flex; justify-content: space-between; margin-top: 15px; align-items: flex-end; gap: 10px; flex-wrap: wrap; }
+        .signature-field { flex: 1; min-width: 180px; display: flex; flex-direction: column; }
+        .signature-field label { font-weight: bold; font-size: 12px; margin-bottom: 4px; }
+        .signature-field input, .signature-field select { padding: 6px; font-size: 13px; border: 1px solid #ccc; border-radius: 4px; height: 32px; box-sizing: border-box; }
+
+        .term-acceptance { display: flex; align-items: center; background: #fffde7; padding: 10px; border: 1px solid #ffcc00; border-radius: 4px; margin-top: 15px; font-size: 13px; font-weight: bold; }
+        .term-acceptance input { margin-right: 10px; transform: scale(1.2); }
+
+        button { background: #27ae60; color: white; border: none; padding: 12px 20px; border-radius: 4px; cursor: pointer; font-size: 16px; margin-top: 15px; width: 100%; font-weight: bold; }
+        button:hover { background: #219653; }
+        .email-section { margin-top: 20px; border: 1px solid #ccc; padding: 15px; border-radius: 4px; background: #fdfdfd; }
+        .email-section h3 { margin-top: 0; font-size: 15px; color: #333; border-bottom: 2px solid #ffcc00; padding-bottom: 5px; }
+        .email-section p { font-size: 12px; color: #666; margin-top: 0; }
+        .email-section input[type="email"] { width: 100%; box-sizing: border-box; padding: 8px; font-size: 14px; border: 1px solid #ccc; border-radius: 4px; margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header-box">
+        <div class="header-title">LISTA DE FERRAMENTAS PADRÃO - TÉCNICO</div>
+        <div class="header-fields">
+            <div class="field-group">
+                <label for="tipoChecklist">Tipo de checklist:</label>
+                <select id="tipoChecklist" required>
+                    <option value="">Selecione o tipo de checklist...</option>
+                    <option value="1ª Conferência">1ª Conferência</option>
+                    <option value="Conferência Periódica">Conferência Periódica</option>
+                    <option value="Saída de Férias">Saída de Férias</option>
+                    <option value="Retorno de Férias">Retorno de Férias</option>
+                    <option value="Transferência de Ferramental">Transferência de Ferramental</option>
+                </select>
+            </div>
+            <div class="field-group">
+                <label for="nomeTecnico">Nome completo do técnico:</label>
+                <input type="text" id="nomeTecnico" placeholder="Digite o nome completo">
+            </div>
+            <div class="field-group">
+                <label for="cpfTecnico">CPF:</label>
+                <input type="text" id="cpfTecnico" placeholder="000.000.000-00">
+            </div>
+            <div class="field-group">
+                <label for="filialSelect">Filial / Unidade:</label>
+                <select id="filialSelect">
+                    <option value="">Selecione a Filial...</option>
+                    <option value="Cuiabá - MT">Cuiabá - MT</option>
+                    <option value="Sapezal - MT">Sapezal - MT</option>
+                    <option value="Goiânia - GO">Goiânia - GO</option>
+                    <option value="Campo Grande - MS">Campo Grande - MS</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <h2>Itens de Verificação</h2>
+    <div id="checklist-container">Carregando itens...</div>
+    
+    <div class="extra-section">
+        <h3>Itens Adicionais / Observações</h3>
+        <p style="font-size: 12px; color: #666; margin-top: 0;">Utilize os campos abaixo caso haja necessidade de inclusão de ferramentas extras ou anotações adicionais:</p>
+        <div id="extra-container"></div>
+    </div>
+
+    <div class="obs-section">
+        <h3>Observações Gerais</h3>
+        <p style="font-size: 12px; color: #666; margin-top: 0;">Insira abaixo qualquer informação, justificativa ou detalhe adicional necessário:</p>
+        <div class="field-group">
+            <textarea id="observacaoGeral" rows="4" placeholder="Digite suas observações aqui..."></textarea>
+        </div>
+    </div>
+
+    <div class="term-box">
+        <p>Recebi da empresa, <strong>Iguaçu Máquinas Agrícolas LTDA</strong>, CNPJ nº. 33.656.729/0001-70, a título de empréstimo, <strong>A CAIXA DE FERRAMENTA</strong> especificada neste termo de responsabilidade, comprometer-me-a mantê-la em perfeito estado de conservação, ficando ciente de que:</p>
+        <ol>
+            <li>Se as ferramentas forem danificadas ou inutilizadas por emprego inadequado, mau uso, negligência ou extravio, a empresa me fornecerá uma nova ferramenta e cobrará o valor de uma ferramenta da mesma marca ou equivalente ao da praça.</li>
+            <li>Em caso de dano, inutilização ou extravio das ferramentas deverei comunicar imediatamente ao setor competente.</li>
+            <li>No caso de rescisão do contrato, deverei devolver todas as ferramentas em perfeito estado de conservação, considerando-se o desgaste natural de tempo de uso da mesma.</li>
+            <li>Estando as ferramentas em minha posse, estarei sujeito a inspeções sem prévio aviso.</li>
+        </ol>
+
+        <div class="signature-area">
+            <div class="signature-field">
+                <label>Assinatura (Digite seu Nome Completo):</label>
+                <input type="text" id="assinaturaTecnico" placeholder="Confirmação de recebimento">
+            </div>
+            <div class="signature-field" style="max-width: 150px;">
+                <label>Local / Cidade:</label>
+                <input type="text" id="localAssinatura" placeholder="Ex: Cuiabá">
+            </div>
+            <div class="signature-field" style="max-width: 110px;">
+                <label>Data:</label>
+                <input type="text" id="dataAtual" readonly style="background: #eee; text-align: center;">
+            </div>
+        </div>
+
+        <div class="term-acceptance">
+            <input type="checkbox" id="aceiteTermo">
+            <label for="aceiteTermo">Li e concordo com os termos de responsabilidade acima.</label>
+        </div>
+    </div>
+
+    <div class="email-section">
+        <h3>Envio de cópia do PDF</h3>
+        <p>Preencha um ou os dois campos para receber uma cópia do checklist realizado. Os campos são opcionais.</p>
+        <div class="field-group">
+            <label for="emailExecutor">E-mail do executor:</label>
+            <input type="email" id="emailExecutor" placeholder="exemplo@empresa.com.br" autocomplete="email">
+        </div>
+        <div class="field-group">
+            <label for="emailCopia">Segundo e-mail para cópia:</label>
+            <input type="email" id="emailCopia" placeholder="gestor@empresa.com.br" autocomplete="email">
+        </div>
+    </div>
+
+    <button onclick="enviarChecklist()">Finalizar e Enviar</button>
+</div>
+
+<script>
+    const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxF2vJtwdl2At0VQcao-nOLz2I8iiaRpKF8MbeHoiqoQJnDEoA12LINpxKNazlLTLLPXQ/exec";
+
+    document.getElementById("dataAtual").value = new Date().toLocaleDateString("pt-BR");
+
+    let checklistData = [
+        { id: 1, text: "MARTELO DE BOLA 800G", qtd: 1, checked: false },
+        { id: 2, text: "MARTELO BORRACHA 80MM", qtd: 1, checked: false },
+        { id: 3, text: "LIMA REDONDA BASTARDA 8", qtd: 1, checked: false },
+        { id: 4, text: "TRENA 5M", qtd: 1, checked: false },
+        { id: 5, text: "ALICATE UNIVERSAL 8", qtd: 1, checked: false },
+        { id: 6, text: "ALICATE MEIA CANA 6", qtd: 1, checked: false },
+        { id: 7, text: "ALICATE PARA ANEIS 7", qtd: 1, checked: false },
+        { id: 8, text: "ALIC. PRESSAO MORD. TRIANGULAR 10", qtd: 1, checked: false },
+        { id: 9, text: "CHAVE PARA TUBOS 14", qtd: 1, checked: false },
+        { id: 10, text: "CHAVE AJUSTAVEL 15", qtd: 1, checked: false },
+        { id: 11, text: "ARCO DE SERRA 12", qtd: 1, checked: false },
+        { id: 12, text: "ALICATE BOMBA D AGUA 10", qtd: 1, checked: false },
+        { id: 13, text: "CH FILTRO OLEO 25-150MM", qtd: 1, checked: false },
+        { id: 14, text: "CH FILTRO OLEO 40-230MM", qtd: 1, checked: false },
+        { id: 15, text: "ALICATE BICO LONGO 6", qtd: 1, checked: false },
+        { id: 16, text: "CHAVE EXTENSAO FLEX. IMANTADA 2,3KG", qtd: 1, checked: false },
+        { id: 17, text: "CH. TOCO P. CHATA 6X38 -1/4X1.1/2", qtd: 1, checked: false },
+        { id: 18, text: "CH. DE FENDA P CHATA 10X300 -3/8X12", qtd: 1, checked: false },
+        { id: 19, text: "CH. TOCO P. CRUZ. 6X38 -1/4X1.1/2", qtd: 1, checked: false },
+        { id: 20, text: "CH. DE FENDA P. CRUZ. 3X100 -1/8X4", qtd: 1, checked: false },
+        { id: 21, text: "CH. DE FENDA P. CRUZ. 6X250 -1/4X5", qtd: 1, checked: false },
+        { id: 22, text: "JOGO DE CHAVES DE FENDA 6 PECAS", qtd: 1, checked: false },
+        { id: 23, text: "CHAVE CANHAO 3MM TWISTER", qtd: 1, checked: false },
+        { id: 24, text: "CHAVE CANHAO 4MM TWISTER", qtd: 1, checked: false },
+        { id: 25, text: "CHAVE CANHAO 5MM TWISTER", qtd: 1, checked: false },
+        { id: 26, text: "CHAVE CANHAO 6MM TWISTER", qtd: 1, checked: false },
+        { id: 27, text: "CHAVE CANHAO 7MM TWISTER", qtd: 1, checked: false },
+        { id: 28, text: "CHAVE CANHAO 8MM TWISTER", qtd: 1, checked: false },
+        { id: 29, text: "CHAVE CANHAO 9MM TWISTER", qtd: 1, checked: false },
+        { id: 30, text: "CHAVE CANHAO 10MM TWISTER", qtd: 1, checked: false },
+        { id: 31, text: "CHAVE CANHAO 11MM TWISTER", qtd: 1, checked: false },
+        { id: 32, text: "CHAVE CANHAO 12MM TWISTER", qtd: 1, checked: false },
+        { id: 33, text: "CHAVE CANHAO 13MM TWISTER", qtd: 1, checked: false },
+        { id: 34, text: "CHAVE CANHAO 14MM TWISTER", qtd: 1, checked: false },
+        { id: 35, text: "CHAVE CANHAO 3/8 X 125MM TWISTER", qtd: 1, checked: false },
+        { id: 36, text: "CHAVE HEXAGONAL 1,5MM", qtd: 1, checked: false },
+        { id: 37, text: "CHAVE HEXAGONAL 2MM", qtd: 1, checked: false },
+        { id: 38, text: "CHAVE HEXAGONAL 2,5MM", qtd: 1, checked: false },
+        { id: 39, text: "CHAVE HEXAGONAL 3MM", qtd: 1, checked: false },
+        { id: 40, text: "CHAVE HEXAGONAL 4MM", qtd: 1, checked: false },
+        { id: 41, text: "CHAVE HEXAGONAL 5MM", qtd: 1, checked: false },
+        { id: 42, text: "CHAVE HEXAGONAL 6MM", qtd: 1, checked: false },
+        { id: 43, text: "CHAVE HEXAGONAL 8MM", qtd: 1, checked: false },
+        { id: 44, text: "CHAVE HEXAGONAL 10MM", qtd: 1, checked: false },
+        { id: 45, text: "CHAVE HEXAGONAL 5/32", qtd: 1, checked: false },
+        { id: 46, text: "CHAVE HEXAGONAL 3/16", qtd: 1, checked: false },
+        { id: 47, text: "CHAVE HEXAGONAL 7/32", qtd: 1, checked: false },
+        { id: 48, text: "CHAVE HEXAGONAL 1/4", qtd: 1, checked: false },
+        { id: 49, text: "CHAVE HEXAGONAL 5/16", qtd: 1, checked: false },
+        { id: 50, text: "CHAVE HEXAGONAL 3/8", qtd: 1, checked: false },
+        { id: 51, text: "CHAVE HEXAGONAL 7/16", qtd: 1, checked: false },
+        { id: 52, text: "CHAVE HEXAGONAL 1/2", qtd: 1, checked: false },
+        { id: 53, text: "CHAVE HEXAGONAL 9/16", qtd: 1, checked: false },
+        { id: 54, text: "CHAVE HEXAGONAL 5/8", qtd: 1, checked: false },
+        { id: 55, text: "CHAVE TRAFIX T10", qtd: 1, checked: false },
+        { id: 56, text: "CHAVE TRAFIX T15", qtd: 1, checked: false },
+        { id: 57, text: "CHAVE TRAFIX T20", qtd: 1, checked: false },
+        { id: 58, text: "CHAVE TRAFIX T25", qtd: 1, checked: false },
+        { id: 59, text: "CHAVE TRAFIX T27", qtd: 1, checked: false },
+        { id: 60, text: "CHAVE TRAFIX T30", qtd: 1, checked: false },
+        { id: 61, text: "CHAVE TRAFIX T40", qtd: 1, checked: false },
+        { id: 62, text: "CHAVE TRAFIX T45", qtd: 1, checked: false },
+        { id: 63, text: "CHAVE TRAFIX T50", qtd: 1, checked: false },
+        { id: 64, text: "TALHADEIRA 19X180MM", qtd: 1, checked: false },
+        { id: 65, text: "TORQUIMETRO ESTALO 40-200NM", qtd: 1, checked: false },
+        { id: 66, text: "JOGO LAMINAS DE CALIBRE FOLGA 20 PC", qtd: 1, checked: false },
+        { id: 67, text: "PAQUIMETRO UNIVERSAL 0-200MM", qtd: 1, checked: false },
+        { id: 68, text: "CHAVE COMBINADA 6MM", qtd: 1, checked: false },
+        { id: 69, text: "CHAVE COMBINADA 7MM", qtd: 1, checked: false },
+        { id: 70, text: "CHAVE COMBINADA 8MM", qtd: 1, checked: false },
+        { id: 71, text: "CHAVE COMBINADA 10MM", qtd: 1, checked: false },
+        { id: 72, text: "CHAVE COMBINADA 11MM", qtd: 1, checked: false },
+        { id: 73, text: "CHAVE COMBINADA 13MM", qtd: 1, checked: false },
+        { id: 74, text: "CHAVE COMBINADA 14MM", qtd: 1, checked: false },
+        { id: 75, text: "CHAVE COMBINADA 15MM", qtd: 1, checked: false },
+        { id: 76, text: "CHAVE COMBINADA 16MM", qtd: 1, checked: false },
+        { id: 77, text: "CHAVE COMBINADA 17MM", qtd: 1, checked: false },
+        { id: 78, text: "CHAVE COMBINADA 18MM", qtd: 1, checked: false },
+        { id: 79, text: "CHAVE COMBINADA 19MM", qtd: 1, checked: false },
+        { id: 80, text: "CHAVE COMBINADA 21MM", qtd: 1, checked: false },
+        { id: 81, text: "CHAVE COMBINADA 22MM", qtd: 1, checked: false },
+        { id: 82, text: "CHAVE COMBINADA 24MM", qtd: 1, checked: false },
+        { id: 83, text: "CHAVE COMBINADA 27MM", qtd: 1, checked: false },
+        { id: 84, text: "CHAVE COMBINADA 32MM", qtd: 1, checked: false },
+        { id: 85, text: "CHAVE COMBINADA 34MM", qtd: 1, checked: false },
+        { id: 86, text: "CHAVE COMBINADA 36MM", qtd: 1, checked: false },
+        { id: 87, text: "CHAVE COMBINADA 41MM", qtd: 1, checked: false },
+        { id: 88, text: "CHAVE COMBINADA 1/4", qtd: 1, checked: false },
+        { id: 89, text: "CHAVE COMBINADA 5/16", qtd: 1, checked: false },
+        { id: 90, text: "CHAVE COMBINADA 3/8", qtd: 1, checked: false },
+        { id: 91, text: "CHAVE COMBINADA 7/16", qtd: 1, checked: false },
+        { id: 92, text: "CHAVE COMBINADA 1/2", qtd: 1, checked: false },
+        { id: 93, text: "CHAVE COMBINADA 9/16", qtd: 1, checked: false },
+        { id: 94, text: "CHAVE COMBINADA 5/8", qtd: 1, checked: false },
+        { id: 95, text: "CHAVE COMBINADA 11/16", qtd: 1, checked: false },
+        { id: 96, text: "CHAVE COMBINADA 3/4", qtd: 1, checked: false },
+        { id: 97, text: "CHAVE COMBINADA 13/16", qtd: 1, checked: false },
+        { id: 98, text: "CHAVE COMBINADA 7/8", qtd: 1, checked: false },
+        { id: 99, text: "CHAVE COMBINADA 15/16", qtd: 1, checked: false },
+        { id: 100, text: "CHAVE COMBINADA 1", qtd: 1, checked: false },
+        { id: 101, text: "CHAVE COMBINADA 1.1/16", qtd: 1, checked: false },
+        { id: 102, text: "CHAVE COMBINADA 1.1/8", qtd: 1, checked: false },
+        { id: 103, text: "CHAVE COMBINADA 1.1/4", qtd: 1, checked: false },
+        { id: 104, text: "CHAVE BIELA 8MM", qtd: 1, checked: false },
+        { id: 105, text: "CHAVE BIELA 9MM", qtd: 1, checked: false },
+        { id: 106, text: "CHAVE BIELA 10MM", qtd: 1, checked: false },
+        { id: 107, text: "CHAVE BIELA 11MM", qtd: 1, checked: false },
+        { id: 108, text: "CHAVE BIELA 12MM", qtd: 1, checked: false },
+        { id: 109, text: "CHAVE BIELA 13MM", qtd: 1, checked: false },
+        { id: 110, text: "CHAVE BIELA 14MM", qtd: 1, checked: false },
+        { id: 111, text: "CHAVE BIELA 15MM", qtd: 1, checked: false },
+        { id: 112, text: "CHAVE BIELA 16MM", qtd: 1, checked: false },
+        { id: 113, text: "CHAVE BIELA 17MM", qtd: 1, checked: false },
+        { id: 114, text: "CHAVE BIELA 18MM", qtd: 1, checked: false },
+        { id: 115, text: "CHAVE BIELA 19MM", qtd: 1, checked: false },
+        { id: 116, text: "ESPATULA CHATA 500MM", qtd: 1, checked: false },
+        { id: 117, text: "ESPATULA REDONDA 24 - 600MM", qtd: 1, checked: false },
+        { id: 118, text: "SOQUETE ESTRIADO 3/8 6MM", qtd: 1, checked: false },
+        { id: 119, text: "SOQUETE ESTRIADO 3/8 7MM", qtd: 1, checked: false },
+        { id: 120, text: "SOQUETE ESTRIADO 3/8 8MM", qtd: 1, checked: false },
+        { id: 121, text: "SOQUETE ESTRIADO 3/8 9MM", qtd: 1, checked: false },
+        { id: 122, text: "SOQUETE ESTRIADO 3/8 10MM", qtd: 1, checked: false },
+        { id: 123, text: "SOQUETE ESTRIADO 3/8 11MM", qtd: 1, checked: false },
+        { id: 124, text: "SOQUETE ESTRIADO 3/8 12MM", qtd: 1, checked: false },
+        { id: 125, text: "SOQUETE ESTRIADO 3/8 13MM", qtd: 1, checked: false },
+        { id: 126, text: "SOQUETE ESTRIADO 3/8 14MM", qtd: 1, checked: false },
+        { id: 127, text: "SOQUETE ESTRIADO 3/8 15MM", qtd: 1, checked: false },
+        { id: 128, text: "SOQUETE ESTRIADO 3/8 16MM", qtd: 1, checked: false },
+        { id: 129, text: "SOQUETE ESTRIADO 3/8 17MM", qtd: 1, checked: false },
+        { id: 130, text: "SOQUETE ESTRIADO 3/8 18MM", qtd: 1, checked: false },
+        { id: 131, text: "SOQUETE ESTRIADO 3/8 19MM", qtd: 1, checked: false },
+        { id: 132, text: "SOQUETE ESTRIADO 3/8 21MM", qtd: 1, checked: false },
+        { id: 133, text: "SOQUETE ESTRIADO 3/8 22MM", qtd: 1, checked: false },
+        { id: 134, text: "SOQUETE ESTRIADO 3/8 9/16", qtd: 1, checked: false },
+        { id: 135, text: "SOQUETE ESTRIADO 3/8 5/8", qtd: 1, checked: false },
+        { id: 136, text: "SOQUETE ESTRIADO 3/8 11/16", qtd: 1, checked: false },
+        { id: 137, text: "SOQUETE ESTRIADO 3/8 3/4", qtd: 1, checked: false },
+        { id: 138, text: "SOQUETE ESTRIADO 3/8 13/16", qtd: 1, checked: false },
+        { id: 139, text: "SOQUETE ESTRIADO 3/8 7/8", qtd: 1, checked: false },
+        { id: 140, text: "SOQUETE ESTRIADO 3/8 - 5/16", qtd: 1, checked: false },
+        { id: 141, text: "SOQUETE ESTRIADO 3/8 - 3/8", qtd: 1, checked: false },
+        { id: 142, text: "SOQUETE ESTRIADO 3/8 - 7/16", qtd: 1, checked: false },
+        { id: 143, text: "SOQUETE ESTRIADO 3/8  - 1/2", qtd: 1, checked: false },
+        { id: 144, text: "EXTENSAO 3/8 - 5", qtd: 1, checked: false },
+        { id: 145, text: "EXTENSAO 3/8 10", qtd: 1, checked: false },
+        { id: 146, text: "JUNTA UNIVERSAL 3/8", qtd: 1, checked: false },
+        { id: 147, text: "CATRACA 3/8 8", qtd: 1, checked: false },
+        { id: 148, text: "SOQUETE ESTRIADO 1/2 10MM", qtd: 1, checked: false },
+        { id: 149, text: "SOQUETE ESTRIADO 1/2 11MM", qtd: 1, checked: false },
+        { id: 150, text: "SOQUETE ESTRIADO 1/2 12MM", qtd: 1, checked: false },
+        { id: 151, text: "SOQUETE ESTRIADO 1/2 13MM", qtd: 1, checked: false },
+        { id: 152, text: "SOQUETE ESTRIADO 1/2 14MM", qtd: 1, checked: false },
+        { id: 153, text: "SOQUETE ESTRIADO 1/2 15MM", qtd: 1, checked: false },
+        { id: 154, text: "SOQUETE ESTRIADO 1/2 16MM", qtd: 1, checked: false },
+        { id: 155, text: "SOQUETE ESTRIADO 1/2 17MM", qtd: 1, checked: false },
+        { id: 156, text: "SOQUETE ESTRIADO 1/2 18MM", qtd: 1, checked: false },
+        { id: 157, text: "SOQUETE ESTRIADO 1/2 19MM", qtd: 1, checked: false },
+        { id: 158, text: "SOQUETE ESTRIADO 1/2 20MM", qtd: 1, checked: false },
+        { id: 159, text: "SOQUETE ESTRIADO 1/2 21MM", qtd: 1, checked: false },
+        { id: 160, text: "SOQUETE ESTRIADO 1/2 24MM", qtd: 1, checked: false },
+        { id: 161, text: "SOQUETE ESTRIADO 1/2 27MM", qtd: 1, checked: false },
+        { id: 162, text: "SOQUETE ESTRIADO 1/2 30MM", qtd: 1, checked: false },
+        { id: 163, text: "SOQUETE ESTRIADO 1/2 32MM", qtd: 1, checked: false },
+        { id: 164, text: "SOQUETE ESTRIADO 1/2 1.1/4", qtd: 1, checked: false },
+        { id: 165, text: "CABO T 1/2 10", qtd: 1, checked: false },
+        { id: 166, text: "EXTENSAO 1/2 5", qtd: 1, checked: false },
+        { id: 167, text: "EXTENSAO 1/2 10", qtd: 1, checked: false },
+        { id: 168, text: "CATRACA TELESCOPICA 1/2 12", qtd: 1, checked: false },
+        { id: 169, text: "SOQUETE PONTA HEX. 1/2 4MM", qtd: 1, checked: false },
+        { id: 170, text: "SOQUETE PONTA HEX. 1/2 5MM", qtd: 1, checked: false },
+        { id: 171, text: "SOQUETE PONTA HEX. 1/2 6MM", qtd: 1, checked: false },
+        { id: 172, text: "SOQUETE PONTA HEX. 1/2 8MM", qtd: 1, checked: false },
+        { id: 173, text: "SOQUETE PONTA HEX. 1/2 10MM", qtd: 1, checked: false },
+        { id: 174, text: "SOQUETE PONTA HEX. 1/2 12MM", qtd: 1, checked: false },
+        { id: 175, text: "SOQUETE PONTA HEX. 1/2 14MM", qtd: 1, checked: false },
+        { id: 176, text: "SOQUETE PONTA HEX. 1/2 17MM", qtd: 1, checked: false },
+        { id: 177, text: "SOQUETE ESTRIADO 3/4 22MM", qtd: 1, checked: false },
+        { id: 178, text: "SOQUETE ESTRIADO 3/4 24MM", qtd: 1, checked: false },
+        { id: 179, text: "SOQUETE ESTRIADO 3/4 27MM", qtd: 1, checked: false },
+        { id: 180, text: "SOQUETE ESTRIADO 3/4 30MM", qtd: 1, checked: false },
+        { id: 181, text: "SOQUETE ESTRIADO 3/4 32MM", qtd: 1, checked: false },
+        { id: 182, text: "SOQUETE ESTRIADO 3/4 34MM", qtd: 1, checked: false },
+        { id: 183, text: "SOQUETE ESTRIADO 3/4 36MM", qtd: 1, checked: false },
+        { id: 184, text: "SOQUETE ESTRIADO 3/4 38MM", qtd: 1, checked: false },
+        { id: 185, text: "SOQUETE ESTRIADO 3/4 41MM", qtd: 1, checked: false },
+        { id: 186, text: "SOQUETE ESTRIADO 3/4 48MM", qtd: 1, checked: false },
+        { id: 187, text: "SOQUETE ESTRIADO 3/4 50MM", qtd: 1, checked: false },
+        { id: 188, text: "SOQUETE SEXTAVADO IMPACTO 1/21", qtd: 1, checked: false },
+        { id: 189, text: "SOQ. SEXT. IMPACTO 1/2 10MM", qtd: 1, checked: false },
+        { id: 190, text: "SOQ. SEXT. IMPACTO 1/2 11MM", qtd: 1, checked: false },
+        { id: 191, text: "SOQ. SEXT. IMPACTO 1/2 12MM", qtd: 1, checked: false },
+        { id: 192, text: "SOQ. SEXT. IMPACTO 1/2 13MM", qtd: 1, checked: false },
+        { id: 193, text: "SOQ. SEXT. IMPACTO 1/2 14MM", qtd: 1, checked: false },
+        { id: 194, text: "SOQ. SEXT. IMPACTO 1/2 15MM", qtd: 1, checked: false },
+        { id: 195, text: "SOQ. SEXT. IMPACTO 1/2 16MM", qtd: 1, checked: false },
+        { id: 196, text: "SOQ. SEXT. IMPACTO 1/2 17MM", qtd: 1, checked: false },
+        { id: 197, text: "SOQ. SEXT. IMPACTO 1/2 18MM", qtd: 1, checked: false },
+        { id: 198, text: "SOQ. SEXT. IMPACTO 1/2 19MM", qtd: 1, checked: false },
+        { id: 199, text: "SOQ. SEXT. IMPACTO 1/2 20MM", qtd: 1, checked: false },
+        { id: 200, text: "SOQ. SEXT. IMPACTO 1/2 21MM", qtd: 1, checked: false },
+        { id: 201, text: "SOQ. SEXT. IMPACTO 1/2 22MM", qtd: 1, checked: false },
+        { id: 202, text: "SOQ. SEXT. IMPACTO 1/2 24MM", qtd: 1, checked: false },
+        { id: 203, text: "SOQ. SEXT. IMPACTO 1/2 27MM", qtd: 1, checked: false },
+        { id: 204, text: "SOQ. SEXT. IMPACTO 1/2 30MM", qtd: 1, checked: false },
+        { id: 205, text: "SOQ. SEXT. IMPACTO 1/2 32MM", qtd: 1, checked: false },
+        { id: 206, text: "PONTEIRA PONTA CRUZADA 8X36MM", qtd: 1, checked: false },
+        { id: 207, text: "SOQ. IMPACTO LONGO 1/2 8MM", qtd: 1, checked: false },
+        { id: 208, text: "SOQ. IMPACTO LONGO 1/2 10MM", qtd: 1, checked: false },
+        { id: 209, text: "SOQ. SEXT. IMPACTO 3/4 19MM", qtd: 1, checked: false },
+        { id: 210, text: "SOQ. SEXT. IMPACTO 3/4 21MM", qtd: 1, checked: false },
+        { id: 211, text: "SOQ. SEXT. IMPACTO 3/4 22MM", qtd: 1, checked: false },
+        { id: 212, text: "SOQ. SEXT. IMPACTO 3/4 24MM", qtd: 1, checked: false },
+        { id: 213, text: "SOQ. SEXT. IMPACTO 3/4 27MM", qtd: 1, checked: false },
+        { id: 214, text: "SOQ. SEXT. IMPACTO 3/4 30MM", qtd: 1, checked: false },
+        { id: 215, text: "SOQ. SEXT. IMPACTO 3/4 32MM", qtd: 1, checked: false },
+        { id: 216, text: "SOQ. SEXT. IMPACTO 3/4 36MM", qtd: 1, checked: false },
+        { id: 217, text: "SOQ. SEXT. IMPACTO 3/4 38MM", qtd: 1, checked: false },
+        { id: 218, text: "SOQ. SEXT. IMPACTO 3/4 41MM", qtd: 1, checked: false },
+        { id: 219, text: "SOQ. SEXT. IMPACTO 3/4 46MM", qtd: 1, checked: false },
+        { id: 220, text: "SOQ. SEXT. IMPACTO 3/4 1.1/8", qtd: 1, checked: false },
+        { id: 221, text: "SOQ. SEXT. IMPACTO 3/4 1.5/16", qtd: 1, checked: false },
+        { id: 222, text: "SOQUETE DE IMPACTO C/PON.SEX.4MM", qtd: 1, checked: false },
+        { id: 223, text: "SOQUETE DE IMPACTO C/PON.SEX.6MM", qtd: 1, checked: false },
+        { id: 224, text: "SOQUETE DE IMPACTO C/PON.SEX.7MM", qtd: 1, checked: false },
+        { id: 225, text: "SOQUETE DE IMPACTO C/PON.SEX.8MM", qtd: 1, checked: false },
+        { id: 226, text: "SOQUETE DE IMPACTO C/PON.SEX.10MM", qtd: 1, checked: false },
+        { id: 227, text: "SOQUETE DE IMPACTO C/PON.SEX.12MM", qtd: 1, checked: false },
+        { id: 228, text: "SOQUETE DE IMPACTO C/PON.SEX.14MM", qtd: 1, checked: false },
+        { id: 229, text: "SOQUETE DE IMPACTO C/PON.SEX.17MM", qtd: 1, checked: false },
+        { id: 230, text: "SOQUETE DE IMPACTO PON.TRAFIX.30MM", qtd: 1, checked: false },
+        { id: 231, text: "SOQUETE DE IMPACTO PON.TRAFIX 40MM", qtd: 1, checked: false },
+        { id: 232, text: "SOQUETE DE IMPACTO PON.TRAFIX 45MM", qtd: 1, checked: false },
+        { id: 233, text: "SOQUETE DE IMPACTO PON.TRAFIX 50MM", qtd: 1, checked: false },
+        { id: 234, text: "SOQUETE DE IMPACTO PON.TRAFIX 55MM", qtd: 1, checked: false },
+        { id: 235, text: "SOQUETE DE IMPACTO PON.TRAFIX 60MM", qtd: 1, checked: false },
+        { id: 236, text: "EVA PICKUP BOX 880X400X40 MM", qtd: 5, checked: false },
+        { id: 237, text: "CAIXA PICKUP BOX 840X1000X500 MM", qtd: 1, checked: false },
+        { id: 238, text: "Kit Manômetro", qtd: 1, checked: false },
+        { id: 239, text: "Caixa Sondas", qtd: 1, checked: false },
+        { id: 240, text: "Múltimetro digital", qtd: 1, checked: false },
+        { id: 241, text: "Tacômetro", qtd: 1, checked: false },
+        { id: 242, text: "Termometro Infravermelho", qtd: 1, checked: false },
+        { id: 243, text: "Chave de Impacto", qtd: 1, checked: false },
+        { id: 244, text: "Chave de Impacto Bateria", qtd: 2, checked: false },
+        { id: 245, text: "Chave de Impacto Carregador Bateria", qtd: 1, checked: false }
+    ];
+
+    function carregarDados() {
+        renderizarUI();
+        renderizarLinhasExtras();
+    }
+
+    function renderizarUI() {
+        const container = document.getElementById("checklist-container");
+        container.innerHTML = "";
+        checklistData.forEach((item, index) => {
+            const div = document.createElement("div");
+            div.className = "checklist-item";
+            div.innerHTML = `
+                <div class="item-info">
+                    <input type="checkbox" id="item-${index}" ${item.checked ? "checked" : ""} onchange="checklistData[${index}].checked = this.checked">
+                    <label for="item-${index}">${item.text}</label>
+                </div>
+                <div class="badge-qtd">Qtd: ${item.qtd}</div>
+                <div class="foto-item">
+                    <input type="file" accept="image/*" capture="environment" onchange="prepararFotoItem(${index}, this)">
+                    <span class="foto-status" id="foto-status-${index}">${item.foto ? "Foto OK" : ""}</span>
+                </div>
+            `;
+            container.appendChild(div);
+        });
+    }
+
+    async function prepararFotoItem(index, input) {
+        const arquivo = input.files && input.files[0];
+        if (!arquivo) return;
+
+        if (!arquivo.type.startsWith("image/")) {
+            alert("Selecione um arquivo de imagem.");
+            input.value = "";
+            return;
+        }
+
+        try {
+            checklistData[index].foto = await comprimirImagem(arquivo, 800, 0.6);
+            const status = document.getElementById(`foto-status-${index}`);
+            if (status) status.textContent = "Foto OK";
+        } catch (erro) {
+            alert("Não foi possível processar a foto. Tente outra imagem.");
+            input.value = "";
+        }
+    }
+
+    function comprimirImagem(arquivo, larguraMaxima, qualidade) {
+        return new Promise((resolve, reject) => {
+            const leitor = new FileReader();
+            leitor.onload = evento => {
+                const imagem = new Image();
+                imagem.onload = () => {
+                    const escala = Math.min(1, larguraMaxima / imagem.width);
+                    const canvas = document.createElement("canvas");
+                    canvas.width = Math.max(1, Math.round(imagem.width * escala));
+                    canvas.height = Math.max(1, Math.round(imagem.height * escala));
+                    const contexto = canvas.getContext("2d");
+                    contexto.drawImage(imagem, 0, 0, canvas.width, canvas.height);
+                    resolve(canvas.toDataURL("image/jpeg", qualidade));
+                };
+                imagem.onerror = reject;
+                imagem.src = evento.target.result;
+            };
+            leitor.onerror = reject;
+            leitor.readAsDataURL(arquivo);
+        });
+    }
+
+    const fotosExtras = {};
+
+    async function prepararFotoExtra(linha, input) {
+        const arquivo = input.files && input.files[0];
+        if (!arquivo) return;
+
+        if (!arquivo.type.startsWith("image/")) {
+            alert("Selecione um arquivo de imagem.");
+            input.value = "";
+            return;
+        }
+
+        try {
+            fotosExtras[linha] = await comprimirImagem(arquivo, 800, 0.6);
+            const status = document.getElementById(`foto-extra-status-${linha}`);
+            if (status) status.textContent = "Foto OK";
+        } catch (erro) {
+            alert("Não foi possível processar a foto do item adicional.");
+            input.value = "";
+        }
+    }
+
+    function renderizarLinhasExtras() {
+        const extraContainer = document.getElementById("extra-container");
+        extraContainer.innerHTML = "";
+        for (let i = 1; i <= 30; i++) {
+            const row = document.createElement("div");
+            row.className = "extra-row";
+            row.innerHTML = `
+                <span>${i}.</span>
+                <input type="text" id="extra-item-${i}" placeholder="Digite um item extra ou observação...">
+                <input type="number" id="extra-qtd-${i}" value="" min="1" step="1" inputmode="numeric" pattern="[0-9]*" title="Informe somente números" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+                <input type="file" accept="image/*" capture="environment" onchange="prepararFotoExtra(${i}, this)" title="Foto do item adicional">
+                <span class="foto-status" id="foto-extra-status-${i}"></span>
+            `;
+            extraContainer.appendChild(row);
+        }
+    }
+
+    document.getElementById("filialSelect").addEventListener("change", function() {
+        const valor = this.value;
+        if (valor) {
+            const cidade = valor.split(" - ")[0];
+            document.getElementById("localAssinatura").value = cidade;
+        }
+    });
+
+    async function enviarChecklist() {
+        const tipoChecklist = document.getElementById("tipoChecklist").value.trim();
+        const nome = document.getElementById("nomeTecnico").value.trim();
+        const cpf = document.getElementById("cpfTecnico").value.trim();
+        const filial = document.getElementById("filialSelect").value.trim();
+        const assinatura = document.getElementById("assinaturaTecnico").value.trim();
+        const local = document.getElementById("localAssinatura").value.trim();
+        const aceite = document.getElementById("aceiteTermo").checked;
+        const email1 = document.getElementById("emailExecutor").value.trim();
+        const email2 = document.getElementById("emailCopia").value.trim();
+        const observacaoGeral = document.getElementById("observacaoGeral").value.trim();
+
+        if (!tipoChecklist) { alert("Selecione o tipo de checklist."); return; }
+        if (!nome || !cpf) { alert("Preencha o Nome e o CPF!"); return; }
+        if (!filial) { alert("Selecione a Filial."); return; }
+        if (!assinatura) { alert("Digite seu nome na assinatura."); return; }
+        if (!local) { alert("Informe a cidade."); return; }
+        if (!aceite) { alert("Você precisa aceitar os termos."); return; }
+
+        const itensExtras = [];
+        for (let i = 1; i <= 30; i++) {
+            const val = document.getElementById(`extra-item-${i}`).value.trim();
+            const qtdTexto = document.getElementById(`extra-qtd-${i}`).value.trim();
+
+            if (val && (!qtdTexto || !/^\d+$/.test(qtdTexto) || parseInt(qtdTexto, 10) < 1)) {
+                alert(`Informe uma quantidade inteira maior que zero para o item adicional da linha ${i}.`);
+                return;
+            }
+
+            if (val) {
+                itensExtras.push({
+                    linha: i,
+                    descricao: val,
+                    qtd: parseInt(qtdTexto, 10),
+                    foto: fotosExtras[i]
+                });
+            }
+        }
+
+        const dados = {
+            tipoChecklist: tipoChecklist,
+            tecnico: nome,
+            cpf: cpf,
+            filial: filial,
+            assinatura: assinatura,
+            local: local,
+            data: document.getElementById("dataAtual").value,
+            email1: email1,
+            email2: email2,
+            itensVerificacao: checklistData,
+            itensExtras: itensExtras,
+            observacaoGeral: observacaoGeral
+        };
+
+        try {
+            document.querySelector("button").innerText = "Salvando na Planilha...";
+            
+            await fetch(WEB_APP_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                body: JSON.stringify(dados)
+            });
+
+            alert("Checklist salvo com sucesso na Planilha!");
+            location.reset ? location.reload() : window.location.reload();
+        } catch (erro) {
+            console.error(erro);
+            alert("Erro ao salvar.");
+            document.querySelector("button").innerText = "Finalizar e Enviar";
+        }
+    }
+
+    carregarDados();
+</script>
+
+</body>
+</html>
