@@ -67,54 +67,65 @@
 </div>
 
 <script>
+    const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbylHxeAmcuf48FrJsze8BrWRIfSYEQ6DtmqT6aLKPAduZ4IVGUMLZIC2RXF-Z0g4ZWYSQ/exec";
     let dadosGlobais = [];
 
-    function carregarDadosPainel() {
-        google.script.run
-            .withSuccessHandler(resultado => {
-                if (resultado.erro) {
-                    document.getElementById("loading").innerHTML = `<span style="color:red;">Erro: ${resultado.erro}</span>`;
-                    return;
+    async function carregarDadosPainel() {
+        try {
+            const resposta = await fetch(WEB_APP_URL);
+            const resultado = await resposta.json();
+            
+            if (resultado.erro) {
+                document.getElementById("loading").innerHTML = `<span style="color:red;">Erro: ${resultado.erro}</span>`;
+                return;
+            }
+
+            // Agrupa mantendo SOMENTE A ÚLTIMA checagem de cada técnico
+            const mapaUltimos = {};
+            resultado.forEach(item => {
+                if (!item.tecnico) return;
+                const chave = item.cpf ? item.cpf.trim() : item.tecnico.trim();
+                
+                if (!mapaUltimos[chave] || new Date(item.data || 0) > new Date(mapaUltimos[chave].data || 0)) {
+                    mapaUltimos[chave] = item;
                 }
+            });
 
-                const mapaUltimos = {};
-                resultado.forEach(item => {
-                    if (!item.tecnico) return;
-                    const chave = item.cpf ? item.cpf.trim() : item.tecnico.trim();
-                    
-                    if (!mapaUltimos[chave] || new Date(item.data || 0) > new Date(mapaUltimos[chave].data || 0)) {
-                        mapaUltimos[chave] = item;
-                    }
-                });
-
-                dadosGlobais = Object.values(mapaUltimos);
-                preencherSelectTecnicos(dadosGlobais);
-                renderizarTabela(dadosGlobais);
-                document.getElementById("loading").style.display = "none";
-                document.getElementById("tabelaDados").style.display = "table";
-            })
-            .withFailureHandler(erro => {
-                document.getElementById("loading").innerHTML = `<span style="color:red;">Erro ao conectar com a planilha.</span>`;
-            })
-            .obterDadosPlanilha();
+            dadosGlobais = Object.values(mapaUltimos);
+            preencherSelectTecnicos(dadosGlobais);
+            renderizarTabela(dadosGlobais);
+            
+            document.getElementById("loading").style.display = "none";
+            document.getElementById("tabelaDados").style.display = "table";
+        } catch (erro) {
+            document.getElementById("loading").innerHTML = `<span style="color:red;">Erro ao conectar com o Apps Script.</span>`;
+        }
     }
 
     function preencherSelectTecnicos(dados) {
         const select = document.getElementById("filtroTecnico");
-        const filialAtual = document.getElementById("filtroFilial").value.toLowerCase();
-        
+        const filialAtual = document.getElementById("filtroFilial").value.trim().toLowerCase();
+        const tecnicoSelecionadoAtual = select.value;
+
         select.innerHTML = '<option value="">Todos os Técnicos</option>';
         
         const filtrados = dados.filter(item => {
-            return filialAtual === "" || (item.filial && item.filial.toLowerCase().includes(filialAtual));
+            if (!item.filial) return false;
+            return filialAtual === "" || item.filial.trim().toLowerCase().includes(filialAtual);
         });
 
+        const nomesUnicos = [];
         filtrados.forEach(item => {
-            const opt = document.createElement("option");
-            opt.value = item.tecnico;
-            opt.textContent = item.tecnico;
-            select.appendChild(opt);
+            if (!nomesUnicos.includes(item.tecnico)) {
+                nomesUnicos.push(item.tecnico);
+                const opt = document.createElement("option");
+                opt.value = item.tecnico;
+                opt.textContent = item.tecnico;
+                select.appendChild(opt);
+            }
         });
+
+        select.value = tecnicoSelecionadoAtual;
     }
 
     function atualizarFiltrosTecnicos() {
@@ -126,7 +137,7 @@
         tbody.innerHTML = "";
 
         if (dados.length === 0) {
-            tbody.innerHTML = `<tr><td colspan="6" style="text-align: center;">Nenhum registro encontrado.</td></tr>`;
+            tbody.innerHTML = `<tr><td colspan="6" style="text-align: center;">Nenhum registro encontrado para este filtro.</td></tr>`;
             return;
         }
 
@@ -151,12 +162,12 @@
     }
 
     function filtrarDados() {
-        const filialFiltro = document.getElementById("filtroFilial").value.toLowerCase();
-        const tecnicoFiltro = document.getElementById("filtroTecnico").value.toLowerCase();
+        const filialFiltro = document.getElementById("filtroFilial").value.trim().toLowerCase();
+        const tecnicoFiltro = document.getElementById("filtroTecnico").value.trim().toLowerCase();
 
         const filtrados = dadosGlobais.filter(item => {
-            const matchFilial = filialFiltro === "" || (item.filial && item.filial.toLowerCase().includes(filialFiltro));
-            const matchTecnico = tecnicoFiltro === "" || (item.tecnico && item.tecnico.toLowerCase() === tecnicoFiltro);
+            const matchFilial = filialFiltro === "" || (item.filial && item.filial.trim().toLowerCase().includes(filialFiltro));
+            const matchTecnico = tecnicoFiltro === "" || (item.tecnico && item.tecnico.trim().toLowerCase() === tecnicoFiltro);
             return matchFilial && matchTecnico;
         });
 
