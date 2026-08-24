@@ -67,12 +67,13 @@
 </div>
 
 <script>
-    const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbylHxeAmcuf48FrJsze8BrWRIFsYEQ6DtmqT6aLKPAdUz4IVGUMLZlC2RXf-Z0g4ZWYSQ/exec";
+    const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxfexbYIqKjeWqHtJ6jsur3zuwW4O5sOHrtme4lsmMsFJA_2tfvvGpiAtbtv0zrShcm4Q/exec";
     let dadosGlobais = [];
 
+    // Função de callback chamada pelo Apps Script via JSONP
     function processarDados(resultado) {
         if (!resultado || resultado.erro) {
-            document.getElementById("loading").innerHTML = `<span style="color:red;">Erro na planilha: ${resultado ? resultado.erro : "Sem resposta"}</span>`;
+            document.getElementById("loading").innerHTML = `<span style="color:red;">Erro ao carregar dados: ${resultado ? resultado.erro : "Sem resposta"}</span>`;
             return;
         }
 
@@ -95,16 +96,13 @@
     }
 
     function carregarDadosPainel() {
-        // Método via Fetch com modo no-cors/fallback ou requisição direta via Script
-        fetch(WEB_APP_URL)
-            .then(res => res.json())
-            .then(data => processarDados(data))
-            .catch(err => {
-                // Fallback usando script injection se o fetch for bloqueado
-                const script = document.createElement('script');
-                script.src = `${WEB_APP_URL}?callback=processarDados`;
-                document.body.appendChild(script);
-            });
+        // Injeta uma tag script para buscar os dados sem bloqueio de CORS
+        const script = document.createElement('script');
+        script.src = `${WEB_APP_URL}?callback=processarDados`;
+        script.onerror = function() {
+            document.getElementById("loading").innerHTML = `<span style="color:red;">Erro de conexão com o Apps Script.</span>`;
+        };
+        document.body.appendChild(script);
     }
 
     function preencherSelectTecnicos(dados) {
